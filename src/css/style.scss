@@ -4555,6 +4555,64 @@ th.col-sort[data-asc="false"]::after {
 		}
 	}
 
+		.core-recommendations{
+			margin-top:20px;
+		}
+
+		.core-recommendation-meta{
+			margin-left:auto;
+			font-size:12px;
+			color:#68717a;
+		}
+
+		.core-recommendation-list{
+			display:grid;
+			grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+			gap:10px;
+		}
+
+		.overview-intro,.core-recommendation-intro{margin:4px 0 10px;color:#58646d;}
+		.core-complete-message{margin:8px 0;color:#58646d;}
+
+		.core-recommendation-card{
+			display:grid;
+			grid-template-columns:28px minmax(100px,1fr) 56px 64px 56px;
+			gap:8px;
+			align-items:center;
+			width:100%;
+			padding:12px;
+			border:1px solid #d6dce1;
+			border-radius:6px;
+			background:#fff;
+			text-align:left;
+			cursor:pointer;
+		}
+
+		.core-recommendation-card:hover,
+		.core-recommendation-card.selected{
+			border-color:#596d7d;
+			box-shadow:0 2px 8px rgba(40,55,70,.12);
+		}
+		.core-recommendation-card:focus-visible{outline:2px solid #596d7d;outline-offset:2px;}
+
+		.core-card-rank{font-size:18px;font-weight:700;color:#7b8790;}
+		.core-card-name,.core-card-line{display:flex;flex-direction:column;min-width:0;}
+		.core-card-name strong{font-size:15px;}
+		.core-card-name small,.core-card-line small{font-size:11px;color:#68717a;}
+		.core-card-metric{display:inline-flex;align-items:center;justify-content:center;gap:3px;min-width:42px;font-size:15px;}
+		.core-card-icon{color:#596d7d;font-size:14px;}
+		.core-card-add{grid-column:5;grid-row:1;width:28px;height:28px;border:1px solid #596d7d;border-radius:50%;background:#fff;color:#596d7d;font-size:18px;line-height:24px;cursor:pointer;}
+		.core-card-add:hover,.core-card-add:focus-visible{background:#596d7d;color:#fff;}
+		.core-card-line{grid-column:2 / 5;font-size:12px;color:#3f4b54;white-space:normal;overflow-wrap:anywhere;word-break:normal;line-height:16px;}
+		.core-detail-panel{margin-top:12px;padding:14px;border-left:3px solid #596d7d;background:#f4f6f7;}
+		.core-detail-panel:empty{display:none;}
+		.core-matchup-details{display:block;overflow-x:auto;}
+		.core-detail-header,.core-detail-grid{display:flex;gap:18px;}
+		.core-detail-header{justify-content:space-between;margin-bottom:8px;}
+		.core-detail-grid > div{flex:1;min-width:0;}
+		.core-detail-grid p,.core-detail-grid ul{margin-top:5px;font-size:13px;line-height:18px;}
+		@media (max-width:700px){.core-recommendation-card{grid-template-columns:24px minmax(100px,1fr) 42px 42px 36px;padding:10px 8px;}.core-card-metric{min-width:32px;}}
+
 	.rating-table{
 
 		td{

@@ -138,156 +138,47 @@ require_once 'header.php';
 <div class="section typings white">
 	<a href="#" class="toggle active">Overview <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
 	<div class="toggle-content article">
-		<p>Below is a high-level evaluation of your team. Use this as a general guideline for any adjustments you may want to make. Some unique strategies can score lower marks.</p>
-		<div class="overview-section team-blueprint">
+		<p class="overview-intro">A compact view of the team's roles, coverage gaps, and strongest third-pokemon options.</p>
+		<div class="overview-section core-recommendations">
 			<div class="flex">
-				<h3>Team Blueprint</h3>
-				<div class="blueprint-pill">Balanced core</div>
+				<h3>Recommended Third Pokemon</h3>
+				<div class="core-recommendation-meta"></div>
 			</div>
-			<div class="blueprint-grid">
-				<div class="blueprint-card">
-					<h4>Role Fit</h4>
-					<ul class="role-list">
-						<li><span class="role-label">Lead</span><span class="role-value"></span></li>
-						<li><span class="role-label">Safe Switch</span><span class="role-value"></span></li>
-						<li><span class="role-label">Closer</span><span class="role-value"></span></li>
-					</ul>
-				</div>
-				<div class="blueprint-card">
-					<h4>Coverage Focus</h4>
-					<div class="focus-list">
-						<div class="focus-item"><strong>Best vs</strong><span class="focus-value best-threat"></span></div>
-						<div class="focus-item"><strong>Biggest gap</strong><span class="focus-value biggest-gap"></span></div>
-					</div>
-				</div>
-				<div class="blueprint-card">
-					<h4>Best Alternative</h4>
-					<div class="best-alternative"></div>
-				</div>
-			</div>
-		</div>
-		<div class="overview-section coverage">
-			<div class="flex">
-				<h3>Coverage</h3>
-				<div class="grade"></div>
-			</div>
-			<div class="notes">
-				<div grade="A">This team has excellent coverage against top meta threats. It has few or no major vulnerabilities.</div>
-				<div grade="B">This team covers most top meta threats. There may be a few vulnerabilities to look out for.</div>
-				<div grade="C">This team has coverage gaps and may be vulnerable to certain threats. Consider alternative picks or movesets to shore up your weaknesses.</div>
-				<div grade="D">This team is highly vulnerable to certain threats. Consider alternative picks to avoid doubling up on weaknesses or look for Pokemon that perform well against the top meta.</div>
-				<div grade="F">This team has extremely poor coverage against multiple threats. Consider strong meta alternatives to anchor this team.</div>
-			</div>
-		</div>
-		<div class="overview-section bulk">
-			<div class="flex">
-				<h3>Bulk</h3>
-				<div class="grade"></div>
-			</div>
-			<div class="notes">
-				<div grade="A">This team has excellent average bulk. It will help manage shields and overcome difficult scenarios.</div>
-				<div grade="B">This team has good average bulk. Make sure to save shields for your more fragile teammates.</div>
-				<div grade="C">This team has moderate average bulk. You may be pressured to shield more often. Consider a bulky alternative to absorb damage.</div>
-				<div grade="D">This team has low average bulk. You will be pressured to shield often. Consider bulkier alternatives to ease shield pressure.</div>
-				<div grade="F">This team is extremely fragile and will have a hard time climbing out of bad situations. Use bulkier Pokemon to make this team more forgiving.</div>
-			</div>
-		</div>
-		<div class="overview-section safety">
-			<div class="flex">
-				<h3>Safety</h3>
-				<div class="grade"></div>
-			</div>
-			<div class="notes">
-				<div grade="A">This team has extremely safe matchups. It's flexible and can easily pivot to regain advantage.</div>
-				<div grade="B">This team has mostly safe matchups. It can work back from lost leads and has options to escape disadvantageous scenarios.</div>
-				<div grade="C">This team has only somewhat safe matchups. It may have limited safe switch options or struggle without switch advantage. Consider alternatives with good bulk or coverage to provide more flexibility. Otherwise, be prepared to spend shields to line up your Pokemon in the right matchups.</div>
-				<div grade="D">This team has generally unsafe matchups. It may rely on winning the lead and maintaining switch advantage. Consider safer alternatives with broader coverage.</div>
-				<div grade="F">This team has very unsafe matchups. It relies heavily on winning the lead and lining up perfect counters. Consider more flexible alternatives to make your matchups safer.</div>
-			</div>
-		</div>
-		<div class="overview-section consistency">
-			<div class="flex">
-				<h3>Consistency</h3>
-				<div class="grade"></div>
-			</div>
-			<div class="notes">
-				<div grade="A">This team has extremely consistent movesets. It will have dependable damage output.</div>
-				<div grade="B">This team has mostly consistent movesets. It won't depend on baits often.</div>
-				<div grade="C">This team has movesets with mixed consistency. You might depend on baits every now and then.</div>
-				<div grade="D">This team has movesets with low consistency. You'll depend on baits or stat boosts often. Consider alternatives with more consistent Fast or Charged Move damage.</div>
-				<div grade="F">This team has many movesets with poor consistency. You'll be highly dependent on landing baits or triggering stat boosts. Consider alternatives that have more dependable movesets.</div>
-			</div>
+			<p class="core-recommendation-intro">Ranked by added coverage and compatibility with the selected duo.</p>
+			<div class="core-recommendation-list"></div>
+			<div class="core-detail-panel" aria-live="polite"></div>
 		</div>
 	</div>
 	<a href="#" class="toggle active">Meta Scorecard <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
 	<div class="toggle-content article">
 		<p>Explore how the top ranked Pokemon match up against your team below. Print this scorecard or save a screenshot for reference as you practice. Remember to prepare beforehand and follow timely play in tournaments!</p>
 		<div class="table-container">
-			<table class="meta-table rating-table" cellspacing="0">
-			</table>
+			<table class="meta-table rating-table" cellspacing="0"></table>
 		</div>
 		<div class="results-buttons">
 			<a href="#" class="button print-scorecard">Print</a>
 			<a href="#" class="button download-csv">Export All Matchups to CSV</a>
 		</div>
-
-		<table class="rating-table legend" cellspacing="0">
-			<tbody>
-				<tr>
-					<td><a href="#" class="rating win" target="_blank"><span></span></a></td>
-					<td><b>Win:</b> This Pokemon wins decisively in most scenarios. It would take a big HP or energy difference to flip this matchup. This Pokemon can usually safely switch and win.</td>
-				</tr>
-				<tr>
-					<td><a href="#" class="rating close-win" target="_blank"><span></span></a></td>
-					<td><b>Close Win:</b> This Pokemon is favored, but the matchup can flip depending on HP, energy, baits, or IV's. This Pokemon may not be able to safely switch and win.</td>
-				</tr>
-				<tr>
-					<td><a href="#" class="rating tie" target="_blank"><span></span></a></td>
-					<td><b>Tie:</b> Neither Pokemon is favored. This matchup can flip depending on HP, energy, baits, IV's or, Charged Move priority.</td>
-				</tr>
-				<tr>
-					<td><a href="#" class="rating close-loss" target="_blank"><span></span></a></td>
-					<td><b>Close Loss:</b> This Pokemon is usually at a disadvantage, but the matchup can flip depending on HP, energy, baits, or IV's.</td>
-				</tr>
-				<tr>
-					<td><a href="#" class="rating loss" target="_blank"><span></span></a></td>
-					<td><b>Loss:</b> This Pokemon loses decisively in most scenarios. It would take a big HP or energy difference to flip this matchup.</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
-	<a href="#" class="toggle active">Potential Threats <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
-	<div class="toggle-content article">
-		<p>The Pokemon below have the best overall matchups against this team. Results are taken from 0 and 1 shield simulations. Scores also factor in a Pokemon's overall strength and consistency.</p>
-		<div class="table-container">
-			<table class="threats-table rating-table" cellspacing="0">
-			</table>
-		</div>
-		<p class="center">This team has a threat score of <b class="threat-score"></b></p>
-		<p class="small"><strong>Threat score</strong> measures how vulnerable your team may be to specific Pokemon. The smaller the number, the better. It factors in how many Pokemon on your team can be threatened, how hard they're threatened, a threat's overall ranking (how likely you may be to encounter it), and how consistently it performs.</p>
 	</div>
 
 	<a href="#" class="toggle active">Potential Alternatives <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
 	<div class="toggle-content article">
-		<p>The Pokemon below have the best overall matchups against this team's potential threats. Results are taken from 0 and 1 shield simulations across a broader set of threat matchups, and each row now includes a compact synergy summary to help you spot stronger team fits. Scores also factor in a Pokemon's overall strength and consistency. See the team's Coverage grade for more on its potential threats.</p>
-
+		<p>Compare the strongest third-pokemon candidates for the selected duo.</p>
 		<div class="poke-search-container">
 			<input class="poke-search" context="alternative-search" type="text" placeholder="Search Pokemon" />
 			<a href="#" class="search-info">i</a>
 			<a href="#" class="search-traits" title="Search Traits">+</a>
 		</div>
-
 		<div class="summary-legend" title="Core Score combines trio coverage, added coverage from the candidate, pair support, line flexibility, and penalties for critical gaps. Scenario volatility is shown separately.">
 			<span class="legend-pill">Strong core</span>
 			<span class="legend-pill">Usable core</span>
 			<span class="legend-pill">Weak core</span>
 			<span class="legend-help">?</span>
 		</div>
-
 		<div class="table-container">
-			<table class="alternatives-table rating-table" cellspacing="0">
-			</table>
+			<div class="core-matchup-details active">
+				<table class="alternatives-table rating-table" cellspacing="0"></table>
+			</div>
 		</div>
 	</div>
 

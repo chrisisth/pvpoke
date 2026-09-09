@@ -53,6 +53,8 @@ var InterfaceMaster = (function () {
 				$(".rate-btn").on("click", rateClick);
 				$(".print-scorecard").on("click", printScorecard);
 				$("body").on("click", ".alternatives-table .button.add", addAlternativePokemon);
+				$("body").on("click", ".core-recommendation-card", selectCoreRecommendation);
+				$("body").on("click", ".core-card-add", addCoreRecommendation);
 				$("body").on("click", ".check", checkBox);
 				$(".team-size-select").on("change", selectTeamSize);
 
@@ -661,89 +663,17 @@ var InterfaceMaster = (function () {
 				}
 
 				altRankings.sort((a,b) => (b.coreScore > a.coreScore) ? 1 : ((a.coreScore > b.coreScore) ? -1 : 0));
-				self.updateTeamBlueprint(team, threatEntries, altRankings);
+				for(var i = 0; i < altRankings.length; i++){
+					altRankings[i].coreRank = i + 1;
+					altRankings[i].coreTier = i < 3 ? "Recommended" : (i < 10 ? "Candidate" : "Reserve");
+				}
+				self.displayCoreRecommendations(altRankings.slice(0, 10));
 				self.displayAlternatives();
 
 				// Clear targets so it will default to the normal format if the user changes settings
 				ranker.setTargets([]);
 
 
-
-				// Update the overall team grades
-				$(".overview-section .notes div").hide();
-
-				// Coverage grade, take threat score
-				var threatGrade = self.calculateLetterGrade(1200 - avgThreatScore, 680);
-
-				$(".overview-section.coverage .grade").html(threatGrade.letter);
-				$(".overview-section.coverage .grade").attr("grade", threatGrade.letter);
-				$(".overview-section.coverage .notes div[grade=\""+threatGrade.letter+"\"]").show();
-
-				// Bulk grade, average HP x Defense stats
-				var leagueAverageBulk = [22000,35000,35000,10000];
-				var averageBulk = 0;
-				var goalBulk = leagueAverageBulk[0];
-
-				for(var i = 0; i < team.length; i++){
-					team[i].fullReset();
-					averageBulk += (team[i].getEffectiveStat(1) * team[i].stats.hp);
-				}
-
-				averageBulk /= team.length;
-
-				if(battle.getCP() == 2500){
-					goalBulk = leagueAverageBulk[1];
-					if(battle.getCup().name == "premier"){
-						goalBulk = 33000;
-					}
-				} else if(battle.getCP() == 10000){
-					goalBulk = leagueAverageBulk[2];
-				} else if(battle.getCP() == 500){
-					goalBulk = leagueAverageBulk[3];
-				}
-
-				var bulkGrade = self.calculateLetterGrade(averageBulk, goalBulk);
-				$(".overview-section.bulk .grade").html(bulkGrade.letter);
-				$(".overview-section.bulk .grade").attr("grade", bulkGrade.letter);
-				$(".overview-section.bulk .notes div[grade=\""+bulkGrade.letter+"\"]").show();
-
-				// Safety grade, how safe these Pokemon's matchups are
-
-				var overallRankings = gm.rankings[key];
-				var averageSafety = 0;
-
-				for(var i = 0; i < team.length; i++){
-					var safety = 60;
-
-					for(var n = 0; n < overallRankings.length; n++){
-						if(team[i].speciesId == overallRankings[n].speciesId){
-							safety = overallRankings[n].scores[2];
-							break;
-						}
-					}
-					averageSafety += safety;
-				}
-
-				averageSafety /= team.length;
-
-				var safetyGrade = self.calculateLetterGrade(averageSafety, 98);
-				$(".overview-section.safety .grade").html(safetyGrade.letter);
-				$(".overview-section.safety .grade").attr("grade", safetyGrade.letter);
-				$(".overview-section.safety .notes div[grade=\""+safetyGrade.letter+"\"]").show();
-
-				// Consistency grade, how bait dependent movesets are
-				var averageConsistency = 0;
-
-				for(var i = 0; i < team.length; i++){
-					averageConsistency += team[i].calculateConsistency();
-				}
-
-				averageConsistency /= team.length;
-
-				var consistencyGrade = self.calculateLetterGrade(averageConsistency, 98);
-				$(".overview-section.consistency .grade").html(consistencyGrade.letter);
-				$(".overview-section.consistency .grade").attr("grade", consistencyGrade.letter);
-				$(".overview-section.consistency .notes div[grade=\""+consistencyGrade.letter+"\"]").show();
 
 				// Set download link data
 				var cupTitle = "All Pokemon";
@@ -820,17 +750,72 @@ var InterfaceMaster = (function () {
 					return value < array[worstIndex] ? index : worstIndex;
 				}, 0);
 
-				var coreScore = ranking.coreScore !== undefined ? Math.round(ranking.coreScore) : null;
-				var label = coreScore === null ? "Matchup fit" : (coreScore >= 75 ? "Strong core" : (coreScore >= 55 ? "Usable core" : "Weak core"));
+				var coreScore = ranking.coreAnalysis ? Math.round(ranking.coreScore) : null;
+				var label = coreScore === null ? "Matchup reference" : (ranking.coreTier || (coreScore >= 75 ? "Strong core" : (coreScore >= 55 ? "Usable core" : "Weak core")));
 				var coreAnalysis = ranking.coreAnalysis;
 				var coreDetails = coreAnalysis ? "coverage " + Math.round(coreAnalysis.threatCoverage) + " • added " + Math.round(coreAnalysis.marginalCoverage) + " • gaps " + coreAnalysis.criticalGaps.length : "";
 				var coreTitle = coreAnalysis ? "Existing duo score " + Math.round(coreAnalysis.existingPairScore) + ". Candidate pair support " + Math.round(coreAnalysis.candidatePairSupport) + ". Existing duo shared weaknesses: " + (coreAnalysis.existingPairWeaknesses.length ? coreAnalysis.existingPairWeaknesses.join(", ") : "none") + ". Candidate pair weaknesses: " + (coreAnalysis.candidatePairWeaknesses.length ? coreAnalysis.candidatePairWeaknesses.join(", ") : "none") + ". Remaining core breakers: " + (coreAnalysis.coreBreakers.length ? coreAnalysis.coreBreakers.join(", ") : "none") : "";
 
 				return {
 					primary: label,
-					secondary: (coreScore === null ? "" : "core " + coreScore + " • " + coreDetails + " • ") + avgRating + " avg • min " + minRating + " • scenario volatility " + scenarioSpread + " • " + winCount + "W • " + closeWinCount + "CW • " + tieCount + "T • " + closeLossCount + "CL • " + lossCount + "L",
+					secondary: (coreScore === null ? "" : "core " + coreScore + " • " + coreDetails + " • ") + avgRating + " avg • min " + minRating + " • volatility " + scenarioSpread,
 					title: coreTitle + " Core score and neutral scenario volatility. W = win, CW = close win, T = tie, CL = close loss, L = loss. Best vs " + ranking.matchups[bestIndex].opponent.speciesName + " (" + ratings[bestIndex] + "), weakest vs " + ranking.matchups[worstIndex].opponent.speciesName + " (" + ratings[worstIndex] + ")"
 				};
+			};
+
+			this.displayCoreRecommendations = function(rankings){
+				var $list = $(".core-recommendation-list");
+				$list.html("");
+				var selectedTeam = multiSelectors[0].getPokemonList();
+				if(selectedTeam.length >= 3){
+					$(".core-recommendation-meta").html("Current line");
+					$(".core-recommendation-intro").html("This line is complete. Review its roles and matchup matrix below.");
+					$list.html("<p class=\"core-complete-message\">Three Pokemon selected. Remove one Pokemon to explore third-pick recommendations.</p>");
+					$(".core-detail-panel").html("");
+					return;
+				}
+				$(".core-recommendation-meta").html(rankings.length + " candidates analyzed");
+
+				if(! rankings.length){
+					$list.html("<p>No compatible third Pokemon candidates were found.</p>");
+					return;
+				}
+
+				rankings.forEach(function(ranking, index){
+					var analysis = ranking.coreAnalysis;
+					var score = Math.round(ranking.coreScore || 0);
+					var added = analysis ? Math.round(analysis.marginalCoverage) : 0;
+					var gaps = analysis ? analysis.criticalGaps.length : 0;
+					var line = analysis && analysis.bestLine ? analysis.bestLine.names.join(" / ") : "Line unavailable";
+					var $card = $("<div class=\"core-recommendation-card\" role=\"button\" tabindex=\"0\"></div>");
+					$card.attr("data-species-id", ranking.speciesId);
+					$card.append("<span class=\"core-card-rank\">" + (index + 1) + "</span>");
+					$card.append("<span class=\"core-card-name\"><strong>" + ranking.speciesName + "</strong><small>" + (ranking.coreTier || "Candidate") + "</small></span>");
+					$card.append("<span class=\"core-card-metric\" title=\"Core score: combined trio quality\"><span class=\"core-card-icon\" aria-hidden=\"true\">&#9733;</span><strong>" + score + "</strong></span>");
+					$card.append("<span class=\"core-card-metric\" title=\"Added coverage: additional threat coverage from this Pokemon\"><span class=\"core-card-icon\" aria-hidden=\"true\">&#43;</span><strong>" + added + "</strong></span>");
+					$card.append("<span class=\"core-card-metric\" title=\"Core gaps: remaining critical or uncertain threats\"><span class=\"core-card-icon\" aria-hidden=\"true\">&#9888;</span><strong>" + gaps + "</strong></span>");
+					$card.append("<span class=\"core-card-line\"><small>Best line</small>" + line + "</span>");
+					$card.append("<button type=\"button\" class=\"core-card-add\" title=\"Add " + ranking.speciesName + " to the team\" pokemon=\"" + ranking.speciesId + "\" alias=\"" + (ranking.pokemon.aliasId || ranking.speciesId) + "\" aria-label=\"Add " + ranking.speciesName + " to the team\">+</button>");
+					$list.append($card);
+				});
+
+				this.showCoreRecommendation(rankings[0]);
+			};
+
+			this.showCoreRecommendation = function(ranking){
+				var $panel = $(".core-detail-panel");
+				if(! ranking || ! ranking.coreAnalysis){
+					$panel.html("");
+					return;
+				}
+
+				var analysis = ranking.coreAnalysis;
+				var gaps = analysis.criticalGaps.slice(0, 6).map(function(gap){ return "<li>" + gap.severity + ": " + gap.name + " (" + Math.round(gap.rating) + ")</li>"; }).join("");
+				var threats = analysis.threatAnalysis.filter(function(item){ return item.status == "covered"; }).slice(0, 8).map(function(item){ return item.threat; }).join(", ");
+				$panel.html("<div class=\"core-detail-header\"><strong>" + ranking.speciesName + " completes the duo</strong><span title=\"Core score\">" + Math.round(ranking.coreScore) + " / 100</span></div>" +
+					"<div class=\"core-detail-grid\"><div><b>Added coverage</b><p>+" + Math.round(analysis.marginalCoverage) + " coverage, " + analysis.viableLineCount + "/6 viable lines.</p></div>" +
+					"<div><b>Covered threats</b><p>" + (threats || "None") + "</p></div>" +
+					"<div><b>Remaining gaps</b><ul>" + (gaps || "<li>None</li>") + "</ul></div></div>");
 			};
 
 			this.getCoreAnalysis = function(team, candidateRanking, counterTeam, threatEntries, metaGroup){
@@ -915,89 +900,6 @@ var InterfaceMaster = (function () {
 				}
 
 				return score;
-			};
-
-			this.updateTeamBlueprint = function(team, threats, alternatives){
-				var roleRows = [];
-				var threatRows = threats.slice(0, Math.min(8, threats.length));
-
-				for(var i = 0; i < team.length; i++){
-					var ratings = [];
-					var minRating = 1000;
-					var favorableCount = 0;
-
-					for(var n = 0; n < threatRows.length; n++){
-						var rating = threatRows[n].matchups[i].rating;
-						ratings.push(rating);
-						minRating = Math.min(minRating, rating);
-
-						if(rating >= 600){
-							favorableCount++;
-						}
-					}
-
-					roleRows.push({
-						pokemon: team[i],
-						avg: Math.round(ratings.reduce(function(sum, value){ return sum + value; }, 0) / ratings.length),
-						min: minRating,
-						favorable: favorableCount
-					});
-				}
-
-				roleRows.sort(function(a, b){
-					return (b.avg - a.avg) || (b.favorable - a.favorable);
-				});
-
-				var lead = roleRows[0];
-				var safe = roleRows.slice().sort(function(a, b){
-					return (b.min - a.min) || (b.favorable - a.favorable);
-				})[0];
-				var closer = roleRows.slice().sort(function(a, b){
-					return (b.favorable - a.favorable) || (b.avg - a.avg);
-				})[0];
-
-				var archetype = "Balanced core";
-				if((lead.avg + safe.avg) / 2 > 620){
-					archetype = "Pressure core";
-				} else if(safe.min > 500){
-					archetype = "Safe swap core";
-				} else if(lead.avg - safe.avg > 80){
-					archetype = "Coverage core";
-				}
-
-				var bestThreat = threatRows.reduce(function(best, threat){
-					var avg = threat.matchups.reduce(function(sum, matchup){ return sum + matchup.rating; }, 0) / threat.matchups.length;
-					if(! best || avg < best.avg){
-						return {avg: avg, speciesName: threat.speciesName};
-					}
-					return best;
-				}, null);
-
-				var gapThreat = threatRows.reduce(function(best, threat){
-					var avg = threat.matchups.reduce(function(sum, matchup){ return sum + matchup.rating; }, 0) / threat.matchups.length;
-					if(! best || avg > best.avg){
-						return {avg: avg, speciesName: threat.speciesName};
-					}
-					return best;
-				}, null);
-
-				var altSummary = null;
-				if(alternatives && alternatives.length > 0){
-					altSummary = self.getAlternativeSummary(alternatives[0]);
-				}
-
-				$(".team-blueprint .blueprint-pill").html(archetype);
-				$(".team-blueprint .role-list li").eq(0).find(".role-value").html(lead.pokemon.speciesName + " · " + lead.avg + " avg").attr("title", "Lead role: average matchup rating against the current threat list. Higher is better.");
-				$(".team-blueprint .role-list li").eq(1).find(".role-value").html(safe.pokemon.speciesName + " · " + safe.avg + " avg").attr("title", "Safe switch role: how well this Pokémon keeps the team afloat in bad matchups.");
-				$(".team-blueprint .role-list li").eq(2).find(".role-value").html(closer.pokemon.speciesName + " · " + closer.avg + " avg").attr("title", "Closer role: how well this Pokémon converts favorable endgames and shield pressure.");
-				$(".team-blueprint .best-threat").html(bestThreat ? bestThreat.speciesName : "—").attr("title", "The threat your team currently handles best on average.");
-				$(".team-blueprint .biggest-gap").html(gapThreat ? gapThreat.speciesName + " · " + Math.round(gapThreat.avg) + " avg" : "—").attr("title", "The threat your team currently struggles with most on average.");
-
-				if(altSummary){
-					$(".team-blueprint .best-alternative").html("<strong>" + alternatives[0].speciesName + "</strong><br>" + altSummary.primary + " · " + altSummary.secondary).attr("title", altSummary.title);
-				} else{
-					$(".team-blueprint .best-alternative").html("No strong alternative yet");
-				}
 			};
 
 			// Display the list of alternative Pokemon given a list of searched Pokemon
@@ -1214,45 +1116,6 @@ var InterfaceMaster = (function () {
 				if(multiSelectors[0].getAvailableSpots() <= 0){
 					$(".alternatives-table .button.add").hide();
 				}
-			}
-
-			// Given a goal value, convert a score into a letter grade
-
-			this.calculateLetterGrade = function(value, goal){
-				var gradeScale = [
-					{
-						letter: "A",
-						value: .9
-					},
-					{
-						letter: "B",
-						value: .8
-					},
-					{
-						letter: "C",
-						value: .7
-					},
-					{
-						letter: "D",
-						value: .6
-					}
-				];
-
-				var percentage = value / goal;
-				var letter="F";
-
-				for(var i = gradeScale.length - 1; i >= 0; i--){
-					if(percentage >= gradeScale[i].value){
-						letter = gradeScale[i].letter;
-					}
-				}
-
-				var result = {
-					letter: letter
-				}
-
-
-				return result;
 			}
 
 			// Given a subject type, produce effectiveness array for offense or defense
@@ -1673,6 +1536,28 @@ var InterfaceMaster = (function () {
 					$(".modal .move-select.charged").eq(1).find("option[value=\""+pokemon.chargedMoves[1].moveId+"\"]").prop("selected", "selected");
 					$(".modal .move-select.charged").eq(1).trigger("change");
 				}
+			}
+
+			function selectCoreRecommendation(e){
+				if($(e.target).closest(".core-card-add").length){
+					return;
+				}
+				var speciesId = $(e.currentTarget).attr("data-species-id");
+				var ranking = altRankings.find(function(entry){ return entry.speciesId == speciesId; });
+				if(ranking){
+					self.showCoreRecommendation(ranking);
+					$(".core-recommendation-card").removeClass("selected");
+					$(e.currentTarget).addClass("selected");
+				}
+			}
+
+			function addCoreRecommendation(e){
+				e.preventDefault();
+				e.stopPropagation();
+				addAlternativePokemon(e);
+				setTimeout(function(){
+					$(".modal .save-poke").trigger("click");
+				}, 0);
 			}
 
 			// Open the print dialogue

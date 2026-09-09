@@ -25,6 +25,15 @@ var CoreSynergyAnalyzer = (function () {
         return totalWeight ? total / totalWeight : 0;
     }
 
+    function quantile(values, percentile){
+        if(! values.length){
+            return 0;
+        }
+        var sorted = values.slice().sort(function(a, b){ return a - b; });
+        var index = Math.max(0, Math.min(sorted.length - 1, Math.floor((sorted.length - 1) * percentile)));
+        return sorted[index];
+    }
+
     function ratingValue(matchup){
         if(! matchup){
             return 0;
@@ -331,7 +340,13 @@ var CoreSynergyAnalyzer = (function () {
         var safeData = matchupData[safe.speciesId] || [];
         var closerData = matchupData[closer.speciesId] || [];
         var findAverage = function(data){ return weightedAverage((data || []).map(function(entry){ return {value: robustRating(entry) / 10, weight: 1}; })); };
-        var findSafe = function(data){ return data && data.length ? Math.min.apply(null, data.map(robustRating)) / 10 : 0; };
+        var findSafe = function(data){
+            if(! data || ! data.length){
+                return 0;
+            }
+            var ratings = data.map(robustRating);
+            return (average(ratings) * 0.4 + quantile(ratings, 0.25) * 0.6) / 10;
+        };
         var findCloser = function(data){ return data && data.length ? data.filter(function(entry){ return robustRating(entry) >= 600; }).length / data.length * 100 : 0; };
         var lineScore = findAverage(leadData) * 0.35 + findSafe(safeData) * 0.30 + findCloser(closerData) * 0.20 + findAverage(closerData) * 0.15;
 
@@ -381,13 +396,14 @@ var CoreSynergyAnalyzer = (function () {
         var orders = [[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]].map(function(order){
             return evaluateLineOrder(members, threats, matchupData, order);
         }).sort(function(a,b){ return b.lineScore - a.lineScore; });
-        var lineFlexibility = orders.filter(function(order){ return order.lineScore >= 60; }).length / orders.length * 100;
-        var orderDependency = 100 - lineFlexibility;
+        var viableLineCount = orders.filter(function(order){ return order.lineScore >= 45; }).length;
+        var lineFlexibility = average(orders.map(function(order){ return order.lineScore; }));
+        var orderDependency = 100 - (viableLineCount / orders.length * 100);
         var trioCoverage = weightedAverage(coverage);
         var marginalCoverage = Math.max(0, trioCoverage - pairAB.threatCoverage);
         var pairSupport = (pairAB.pairScore + pairAC.pairScore + pairBC.pairScore) / 3;
             var candidatePairSupport = (pairAC.pairScore + pairBC.pairScore) / 2;
-        var criticalPenalty = criticalGaps.length ? weightedAverage(criticalGaps.map(function(gap){ return {value: gap.severity == "hard" ? 100 : 50, weight: 1}; })) : 0;
+        var criticalPenalty = threatList.length ? (criticalGaps.reduce(function(total, gap){ return total + (gap.severity == "hard" ? 1 : 0.5); }, 0) / threatList.length) * 100 : 0;
         var coreScore = clamp(
             trioCoverage * 0.25
             + marginalCoverage * 0.20
@@ -417,13 +433,14 @@ var CoreSynergyAnalyzer = (function () {
             roleFlexibility: lineFlexibility,
             lineOrders: orders,
             bestLine: orders[0] || null,
+            viableLineCount: viableLineCount,
             lineFlexibility: lineFlexibility,
             orderDependency: orderDependency,
             coreScore: coreScore,
             explanation: {
                 strengths: [
                     "Threat coverage: " + Math.round(trioCoverage),
-                    "Viable line orders: " + orders.filter(function(order){ return order.lineScore >= 60; }).length + "/6"
+                    "Viable line orders: " + viableLineCount + "/6"
                 ],
                 weaknesses: criticalGaps.map(function(gap){ return gap.severity + " gap vs " + gap.name; })
             }

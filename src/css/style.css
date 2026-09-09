@@ -70,7 +70,7 @@ header {
   top: 0;
 }
 header .header-wrap {
-  max-width: 800px;
+  max-width: 90%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -219,7 +219,6 @@ header .hamburger .meat {
 }
 
 footer {
-  max-width: 800px;
   position: relative;
   z-index: 10;
   text-align: center;
@@ -240,7 +239,7 @@ footer a.domz-link {
 }
 
 #main {
-  max-width: 800px;
+  max-width: 90%;
   margin: auto;
   padding: 60px 10px 10px 10px;
   border-radius: 12px;
@@ -3823,9 +3822,6 @@ th.col-sort[data-asc=false]::after {
   margin-bottom: 10px;
   background: rgba(0, 0, 0, 0.05);
 }
-.typings .overview-section.team-blueprint {
-  background: linear-gradient(135deg, rgba(1, 141, 186, 0.12), rgba(185, 0, 143, 0.12));
-}
 .typings .overview-section .flex {
   justify-content: space-between;
 }
@@ -3833,37 +3829,6 @@ th.col-sort[data-asc=false]::after {
   margin: 10px 0 0px 0;
   font-size: 18px;
   line-height: 26px;
-}
-.typings .overview-section .grade {
-  font-size: 24px;
-  font-weight: bold;
-  padding: 6px 8px;
-  border-radius: 8px;
-  line-height: 30px;
-}
-.typings .overview-section .notes div {
-  display: none;
-  font-size: 12px;
-  border-top: rgba(0, 0, 0, 0.25) 1px solid;
-  margin-top: 5px;
-  padding-top: 5px;
-}
-.typings .blueprint-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
-  margin-top: 8px;
-}
-.typings .blueprint-card {
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 8px;
-  padding: 8px 10px;
-}
-.typings .blueprint-card h4 {
-  margin: 0 0 6px 0;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 .typings .summary-legend {
   display: flex;
@@ -3892,64 +3857,6 @@ th.col-sort[data-asc=false]::after {
   cursor: help;
   font-weight: bold;
 }
-.typings .blueprint-pill {
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.12);
-}
-.typings .role-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.typings .role-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  font-size: 13px;
-  margin-bottom: 4px;
-}
-.typings .role-label {
-  font-weight: bold;
-}
-.typings .focus-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 13px;
-}
-.typings .focus-item {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-}
-.typings .best-alternative {
-  font-size: 13px;
-  line-height: 1.4;
-}
-.typings .overview-section .grade[grade=A] {
-  background: #018dba;
-  color: #fff6d4;
-}
-.typings .overview-section .grade[grade=B] {
-  background: #1b79b4;
-  color: #a5d6fb;
-}
-.typings .overview-section .grade[grade=C] {
-  background: #968cb6;
-  color: #fff6d4;
-}
-.typings .overview-section .grade[grade=D] {
-  background: #96359e;
-  color: #fd91e0;
-}
-.typings .overview-section .grade[grade=F] {
-  background: #b9008f;
-  color: #ff92e2;
-}
-
 .summary li {
   line-height: 24px;
   margin-bottom: 10px;
@@ -4152,6 +4059,186 @@ th.col-sort[data-asc=false]::after {
   display: block;
   font-weight: bold;
   margin-bottom: 2px;
+}
+
+.core-recommendations {
+  margin-top: 20px;
+}
+
+.core-recommendation-meta {
+  margin-left: auto;
+  font-size: 12px;
+  color: #68717a;
+}
+
+.core-recommendation-intro {
+  max-width: 760px;
+  margin: 4px 0 10px;
+  color: #58646d;
+}
+
+.overview-intro {
+  margin: 4px 0 10px;
+  color: #58646d;
+}
+
+.core-complete-message {
+  margin: 8px 0;
+  color: #58646d;
+}
+
+.core-recommendation-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.core-recommendation-card {
+  display: grid;
+  grid-template-columns: 28px minmax(100px, 1fr) 56px 64px 56px;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d6dce1;
+  border-radius: 6px;
+  background: #fff;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.core-recommendation-card:focus-visible {
+  outline: 2px solid #596d7d;
+  outline-offset: 2px;
+}
+
+.core-recommendation-card:hover,
+.core-recommendation-card.selected {
+  border-color: #596d7d;
+  box-shadow: 0 2px 8px rgba(40, 55, 70, .12);
+}
+
+.core-card-rank {
+  font-size: 18px;
+  font-weight: 700;
+  color: #7b8790;
+}
+
+.core-card-name,
+.core-card-line {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.core-card-name strong {
+  font-size: 15px;
+}
+
+.core-card-name small,
+.core-card-line small {
+  font-size: 11px;
+  color: #68717a;
+}
+
+.core-card-metric {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 42px;
+  font-size: 15px;
+}
+
+.core-card-icon {
+  color: #596d7d;
+  font-size: 14px;
+}
+
+.core-card-add {
+  grid-column: 5;
+  grid-row: 1;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #596d7d;
+  border-radius: 50%;
+  background: #fff;
+  color: #596d7d;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.core-card-add:hover,
+.core-card-add:focus-visible {
+  background: #596d7d;
+  color: #fff;
+}
+
+.core-card-line {
+  grid-column: 2 / 5;
+  font-size: 12px;
+  color: #3f4b54;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-height: 16px;
+}
+
+.core-detail-panel {
+  margin-top: 12px;
+  padding: 14px;
+  border-left: 3px solid #596d7d;
+  background: #f4f6f7;
+}
+
+.core-detail-panel:empty {
+  display: none;
+}
+
+.core-matchup-details {
+	display: block;
+  overflow-x: auto;
+}
+
+.core-detail-header,
+.core-detail-grid {
+  display: flex;
+  gap: 18px;
+}
+
+.core-detail-header {
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.core-detail-grid > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.core-detail-grid p,
+.core-detail-grid ul {
+  margin-top: 5px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+@media (max-width: 700px){
+  .core-detail-grid {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .core-recommendation-card {
+    grid-template-columns: 24px minmax(100px, 1fr) 42px 42px 36px;
+    padding: 10px 8px;
+  }
+
+  .core-card-metric {
+    min-width: 32px;
+  }
 }
 .article .rating-table td.summary .summary-secondary {
   display: block;
