@@ -656,10 +656,11 @@ var InterfaceMaster = (function () {
 				}
 
 				for(var i = 0; i < altRankings.length; i++){
-					altRankings[i].synergyScore = self.getAlternativeSynergyScore(altRankings[i], threatEntries);
+					altRankings[i].coreAnalysis = self.getCoreAnalysis(team, altRankings[i], counterTeam, threatEntries, metaGroup);
+					altRankings[i].coreScore = altRankings[i].coreAnalysis ? (altRankings[i].coreAnalysis.coreScore || altRankings[i].coreAnalysis.pairScore || 0) : 0;
 				}
 
-				altRankings.sort((a,b) => (b.synergyScore > a.synergyScore) ? 1 : ((a.synergyScore > b.synergyScore) ? -1 : 0));
+				altRankings.sort((a,b) => (b.coreScore > a.coreScore) ? 1 : ((a.coreScore > b.coreScore) ? -1 : 0));
 				self.updateTeamBlueprint(team, threatEntries, altRankings);
 				self.displayAlternatives();
 
@@ -819,26 +820,60 @@ var InterfaceMaster = (function () {
 					return value < array[worstIndex] ? index : worstIndex;
 				}, 0);
 
-				var label = "Mixed fit";
-				if(avgRating >= 700 && minRating >= 500 && scenarioSpread < 220){
-					label = "Strong fit";
-				} else if(avgRating >= 600 && minRating >= 400 && scenarioSpread < 250){
-					label = "Good fit";
-				} else if(avgRating >= 500 && minRating >= 300){
-					label = "Mixed fit";
-				} else{
-					label = "Weak fit";
-				}
-
-				if(scenarioSpread >= 260){
-					label = "Bait-risk fit";
-				}
+				var coreScore = ranking.coreScore !== undefined ? Math.round(ranking.coreScore) : null;
+				var label = coreScore === null ? "Matchup fit" : (coreScore >= 75 ? "Strong core" : (coreScore >= 55 ? "Usable core" : "Weak core"));
+				var coreAnalysis = ranking.coreAnalysis;
+				var coreDetails = coreAnalysis ? "coverage " + Math.round(coreAnalysis.threatCoverage) + " • added " + Math.round(coreAnalysis.marginalCoverage) + " • gaps " + coreAnalysis.criticalGaps.length : "";
+				var coreTitle = coreAnalysis ? "Existing duo score " + Math.round(coreAnalysis.existingPairScore) + ". Candidate pair support " + Math.round(coreAnalysis.candidatePairSupport) + ". Existing duo shared weaknesses: " + (coreAnalysis.existingPairWeaknesses.length ? coreAnalysis.existingPairWeaknesses.join(", ") : "none") + ". Candidate pair weaknesses: " + (coreAnalysis.candidatePairWeaknesses.length ? coreAnalysis.candidatePairWeaknesses.join(", ") : "none") + ". Remaining core breakers: " + (coreAnalysis.coreBreakers.length ? coreAnalysis.coreBreakers.join(", ") : "none") : "";
 
 				return {
 					primary: label,
-					secondary: avgRating + " avg • min " + minRating + " • spread " + scenarioSpread + " • " + winCount + "W • " + closeWinCount + "CW • " + tieCount + "T • " + closeLossCount + "CL • " + lossCount + "L",
-					title: "Average / worst-case / spread of the shield scenario results. W = win, CW = close win, T = tie, CL = close loss, L = loss. Best vs " + ranking.matchups[bestIndex].opponent.speciesName + " (" + ratings[bestIndex] + "), weakest vs " + ranking.matchups[worstIndex].opponent.speciesName + " (" + ratings[worstIndex] + ")"
+					secondary: (coreScore === null ? "" : "core " + coreScore + " • " + coreDetails + " • ") + avgRating + " avg • min " + minRating + " • scenario volatility " + scenarioSpread + " • " + winCount + "W • " + closeWinCount + "CW • " + tieCount + "T • " + closeLossCount + "CL • " + lossCount + "L",
+					title: coreTitle + " Core score and neutral scenario volatility. W = win, CW = close win, T = tie, CL = close loss, L = loss. Best vs " + ranking.matchups[bestIndex].opponent.speciesName + " (" + ratings[bestIndex] + "), weakest vs " + ranking.matchups[worstIndex].opponent.speciesName + " (" + ratings[worstIndex] + ")"
 				};
+			};
+
+			this.getCoreAnalysis = function(team, candidateRanking, counterTeam, threatEntries, metaGroup){
+				var members = team.slice();
+				if(members.length >= 3){
+					return null;
+				}
+				members.push(candidateRanking.pokemon);
+
+				var matchupData = {};
+				members.forEach(function(member){ matchupData[member.speciesId] = []; });
+
+				for(var i = 0; i < counterTeam.length; i++){
+					var threat = counterTeam[i];
+					var threatEntry = threatEntries[i];
+					var candidateMatchup = candidateRanking.matchups[i];
+
+					for(var n = 0; n < team.length; n++){
+						var reverseMatchup = threatEntry && threatEntry.matchups ? threatEntry.matchups[n] : null;
+						matchupData[team[n].speciesId].push({
+							threatId: threat.speciesId,
+							rating: reverseMatchup ? 1000 - reverseMatchup.rating : 0,
+							scenarioRatings: reverseMatchup && reverseMatchup.scenarioRatings ? reverseMatchup.scenarioRatings.map(function(value){ return 1000 - value; }) : null
+						});
+					}
+
+					matchupData[candidateRanking.pokemon.speciesId].push({
+						threatId: threat.speciesId,
+						rating: candidateMatchup ? candidateMatchup.rating : 0,
+						scenarioRatings: candidateMatchup ? candidateMatchup.scenarioRatings : null
+					});
+				}
+
+				var threats = counterTeam.map(function(threat){
+					var isMeta = metaGroup.some(function(metaPokemon){ return metaPokemon.speciesId == threat.speciesId; });
+					return {speciesId: threat.speciesId, speciesName: threat.speciesName, weight: isMeta ? 1.25 : 1};
+				});
+
+				if(members.length == 3){
+					return CoreSynergyAnalyzer.analyzeCore(members, threats, matchupData);
+				}
+
+				return CoreSynergyAnalyzer.analyzePair(members[0], members[1], threats, matchupData);
 			};
 
 			this.getAlternativeSynergyScore = function(candidate, threatEntries){
@@ -987,7 +1022,7 @@ var InterfaceMaster = (function () {
 
 				$(".alternatives-table").html("");
 				var $row = $("<thead><tr><td class=\"arrow\"></td></tr></thead>");
-				$row.find("tr").append("<th class=\"summary\">Synergy</th>");
+				$row.find("tr").append("<th class=\"summary\">Core Score</th>");
 
 				for(var n = 0; n < counterTeam.length; n++){
 					$row.find("tr").append("<td class=\"name-small\">"+counterTeam[n].speciesName+"</td>");

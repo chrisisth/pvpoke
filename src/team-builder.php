@@ -278,11 +278,10 @@ require_once 'header.php';
 			<a href="#" class="search-traits" title="Search Traits">+</a>
 		</div>
 
-		<div class="summary-legend" title="Average = average matchup rating vs the current threat list. W/CW/T/CL/L describe how often the alternative lands in each matchup class.">
-			<span class="legend-pill">Strong fit</span>
-			<span class="legend-pill">Good fit</span>
-			<span class="legend-pill">Mixed fit</span>
-			<span class="legend-pill">Weak fit</span>
+		<div class="summary-legend" title="Core Score combines trio coverage, added coverage from the candidate, pair support, line flexibility, and penalties for critical gaps. Scenario volatility is shown separately.">
+			<span class="legend-pill">Strong core</span>
+			<span class="legend-pill">Usable core</span>
+			<span class="legend-pill">Weak core</span>
 			<span class="legend-help">?</span>
 		</div>
 
@@ -341,6 +340,7 @@ require_once 'header.php';
 <script src="<?php echo $WEB_ROOT; ?>js/interface/ModalWindow.js?v=<?php echo $SITE_VERSION; ?>"></script>
 <script src="<?php echo $WEB_ROOT; ?>js/interface/PokeSearch.js?v=<?php echo $SITE_VERSION; ?>"></script>
 <script src="<?php echo $WEB_ROOT; ?>js/battle/rankers/TeamRanker.js?v=<?php echo $SITE_VERSION; ?>"></script>
+<script src="<?php echo $WEB_ROOT; ?>js/battle/analyzers/CoreSynergyAnalyzer.js?v=<?php echo $SITE_VERSION; ?>"></script>
 <script src="<?php echo $WEB_ROOT; ?>js/Main.js?v=3"></script>
 
 <?php require_once 'footer.php'; ?>
