@@ -753,8 +753,16 @@ var InterfaceMaster = (function () {
 				var coreScore = ranking.coreAnalysis ? Math.round(ranking.coreScore) : null;
 				var label = coreScore === null ? "Matchup reference" : (ranking.coreTier || (coreScore >= 75 ? "Strong core" : (coreScore >= 55 ? "Usable core" : "Weak core")));
 				var coreAnalysis = ranking.coreAnalysis;
-				var coreDetails = coreAnalysis ? "coverage " + Math.round(coreAnalysis.threatCoverage) + " • added " + Math.round(coreAnalysis.marginalCoverage) + " • gaps " + coreAnalysis.criticalGaps.length : "";
-				var coreTitle = coreAnalysis ? "Existing duo score " + Math.round(coreAnalysis.existingPairScore) + ". Candidate pair support " + Math.round(coreAnalysis.candidatePairSupport) + ". Existing duo shared weaknesses: " + (coreAnalysis.existingPairWeaknesses.length ? coreAnalysis.existingPairWeaknesses.join(", ") : "none") + ". Candidate pair weaknesses: " + (coreAnalysis.candidatePairWeaknesses.length ? coreAnalysis.candidatePairWeaknesses.join(", ") : "none") + ". Remaining core breakers: " + (coreAnalysis.coreBreakers.length ? coreAnalysis.coreBreakers.join(", ") : "none") : "";
+				var coreDetails = "";
+				var coreTitle = "";
+				if(coreAnalysis){
+					var gapsCount = Array.isArray(coreAnalysis.criticalGaps) ? coreAnalysis.criticalGaps.length : 0;
+					coreDetails = "coverage " + Math.round(coreAnalysis.threatCoverage) + " • added " + Math.round(coreAnalysis.marginalCoverage) + " • gaps " + gapsCount;
+					var existingWeaknesses = Array.isArray(coreAnalysis.existingPairWeaknesses) ? coreAnalysis.existingPairWeaknesses.join(", ") : "none";
+					var candidateWeaknesses = Array.isArray(coreAnalysis.candidatePairWeaknesses) ? coreAnalysis.candidatePairWeaknesses.join(", ") : "none";
+					var coreBreakers = Array.isArray(coreAnalysis.coreBreakers) ? coreAnalysis.coreBreakers.join(", ") : "none";
+					coreTitle = "Existing duo score " + Math.round(coreAnalysis.existingPairScore) + ". Candidate pair support " + Math.round(coreAnalysis.candidatePairSupport) + ". Existing duo shared weaknesses: " + existingWeaknesses + ". Candidate pair weaknesses: " + candidateWeaknesses + ". Remaining core breakers: " + coreBreakers;
+				}
 
 				return {
 					primary: label,
@@ -784,8 +792,8 @@ var InterfaceMaster = (function () {
 				rankings.forEach(function(ranking, index){
 					var analysis = ranking.coreAnalysis;
 					var score = Math.round(ranking.coreScore || 0);
-					var added = analysis ? Math.round(analysis.marginalCoverage) : 0;
-					var gaps = analysis ? analysis.criticalGaps.length : 0;
+					var added = (analysis && Number.isFinite(analysis.marginalCoverage)) ? Math.round(analysis.marginalCoverage) : 0;
+					var gaps = (analysis && Array.isArray(analysis.criticalGaps)) ? analysis.criticalGaps.length : 0;
 					var line = analysis && analysis.bestLine ? analysis.bestLine.names.join(" / ") : "Line unavailable";
 					var $card = $("<div class=\"core-recommendation-card\" role=\"button\" tabindex=\"0\"></div>");
 					$card.attr("data-species-id", ranking.speciesId);
@@ -810,12 +818,91 @@ var InterfaceMaster = (function () {
 				}
 
 				var analysis = ranking.coreAnalysis;
-				var gaps = analysis.criticalGaps.slice(0, 6).map(function(gap){ return "<li>" + gap.severity + ": " + gap.name + " (" + Math.round(gap.rating) + ")</li>"; }).join("");
-				var threats = analysis.threatAnalysis.filter(function(item){ return item.status == "covered"; }).slice(0, 8).map(function(item){ return item.threat; }).join(", ");
-				$panel.html("<div class=\"core-detail-header\"><strong>" + ranking.speciesName + " completes the duo</strong><span title=\"Core score\">" + Math.round(ranking.coreScore) + " / 100</span></div>" +
-					"<div class=\"core-detail-grid\"><div><b>Added coverage</b><p>+" + Math.round(analysis.marginalCoverage) + " coverage, " + analysis.viableLineCount + "/6 viable lines.</p></div>" +
-					"<div><b>Covered threats</b><p>" + (threats || "None") + "</p></div>" +
-					"<div><b>Remaining gaps</b><ul>" + (gaps || "<li>None</li>") + "</ul></div></div>");
+				var gapsHtml = "";
+				var threatsHtml = "";
+				var marginalCoverage = 0;
+				var viableLineCount = 0;
+				var threatCoverage = 0;
+				var existingWeaknesses = [];
+				var candidateWeaknesses = [];
+				var coreBreakers = [];
+				if(analysis){
+					if(Array.isArray(analysis.criticalGaps)){
+						gapsHtml = analysis.criticalGaps.slice(0, 8).map(function(gap){ return '<li class="gap-item"><span class="gap-severity">' + gap.severity + '</span>: ' + gap.name + ' <span class="gap-rating">(' + Math.round(gap.rating) + ')</span></li>'; }).join("");
+					}
+					if(Array.isArray(analysis.threatAnalysis)){
+						var covered = analysis.threatAnalysis.filter(function(item){ return item.status == "covered"; }).slice(0, 12);
+						threatsHtml = covered.map(function(item){ return '<span class="threat-chip">' + item.threat + '</span>'; }).join(' ');
+					}
+					marginalCoverage = Number.isFinite(analysis.marginalCoverage) ? Math.round(analysis.marginalCoverage) : 0;
+					viableLineCount = (typeof analysis.viableLineCount === 'number') ? analysis.viableLineCount : 0;
+					threatCoverage = Number.isFinite(analysis.threatCoverage) ? Math.round(analysis.threatCoverage) : 0;
+					existingWeaknesses = Array.isArray(analysis.existingPairWeaknesses) ? analysis.existingPairWeaknesses.slice(0,6) : [];
+					candidateWeaknesses = Array.isArray(analysis.candidatePairWeaknesses) ? analysis.candidatePairWeaknesses.slice(0,6) : [];
+					coreBreakers = Array.isArray(analysis.coreBreakers) ? analysis.coreBreakers.slice(0,6) : [];
+				}
+
+				// Build improvement suggestions
+				var improvements = [];
+				if(candidateWeaknesses.length){ improvements.push('Consider counters for: ' + candidateWeaknesses.join(', ')); }
+				if(coreBreakers.length){ improvements.push('Address remaining core breakers: ' + coreBreakers.join(', ')); }
+				if(!improvements.length){ improvements.push('No immediate changes required; this pick closes most gaps.'); }
+
+				// Build viable lines visual (6 segments)
+				var linesHtml = '';
+				var viableCount = 0;
+				var borderlineCount = 0;
+				if(Array.isArray(analysis.lineOrders) && analysis.lineOrders.length){
+					var orders = analysis.lineOrders.slice(0,6);
+					orders.forEach(function(order){
+						var score = Math.round(order.lineScore || 0);
+						var cls = '';
+						if(score >= 45){ cls = ' filled'; viableCount++; }
+						else if(score >= 40){ cls = ' borderline'; borderlineCount++; }
+						var title = (order.names ? order.names.join(' / ') : 'Order') + ' — ' + score + '%';
+						linesHtml += '<span class="line-block' + cls + '" title="' + title + '"></span>';
+					});
+				} else {
+					for(var i=0;i<6;i++){
+						linesHtml += '<span class="line-block' + (i < viableLineCount ? ' filled' : '') + '"></span>';
+					}
+					viableCount = viableLineCount;
+				}
+
+				var html = '';
+				html += '<div class="core-detail-header"><strong>' + ranking.speciesName + ' completes the duo</strong><span title="Core score">' + Math.round(ranking.coreScore || 0) + ' / 100</span></div>';
+				html += '<div class="core-detail-grid">';
+				// Coverage & lines
+				html += '<div class="core-metrics">';
+				html += '<div class="coverage"><b>Coverage</b><div class="coverage-bar" title="Threat coverage">';
+				html += '<div class="coverage-fill" style="width:' + Math.max(0, Math.min(100, threatCoverage)) + '%"></div>';
+				if(marginalCoverage > 0){ html += '<div class="coverage-add" style="width:' + Math.max(0, Math.min(100, marginalCoverage)) + '%"></div>'; }
+				html += '</div><div class="coverage-label">Current: ' + threatCoverage + '% • +' + marginalCoverage + '% added</div></div>';
+				html += '<div class="viable-lines"><b>Viable lines <span class="viable-info-toggle" title="What this means">i</span></b>';
+				html += '<div class="viable-info-popup" style="display:none;">';
+				html += '<p><strong>Filled:</strong> lines with score ≥ 45% are considered viable.</p>';
+				html += '<p><strong>Borderline:</strong> lines with score 40–44% — near misses you can improve.</p>';
+				html += '<p>Hover a block to see the line and its score. Try changing moves or swapping weak roles to raise a borderline line above 45%.</p>';
+				html += '</div>';
+				html += '<div class="lines">' + linesHtml + '</div><div class="lines-label">' + viableCount + ' / 6 viable lines' + (borderlineCount ? ' (' + borderlineCount + ' borderline)' : '') + '</div></div>';
+				html += '</div>';
+
+				// Covered threats
+				html += '<div class="covered-threats"><b>Covered threats</b><div class="threat-list">' + (threatsHtml || '<em>None</em>') + '</div></div>';
+
+				// Remaining gaps + improvements
+				html += '<div class="remaining-gaps"><b>Remaining gaps</b><ul class="gaps-list">' + (gapsHtml || '<li><em>None</em></li>') + '</ul>';
+				html += '<div class="improve"><b>How to improve</b><ul class="improve-list"><li>' + improvements.join('</li><li>') + '</li></ul></div>';
+				html += '</div>';
+
+				html += '</div>';
+
+				$panel.html(html);
+
+				// Attach info popup toggle and document click handler (namespaced to avoid duplicates)
+				var $popup = $panel.find('.viable-info-popup');
+				$panel.find('.viable-info-toggle').off('click').on('click', function(e){ e.stopPropagation(); $popup.toggle(); });
+				$(document).off('click.teamInterfaceViableInfo').on('click.teamInterfaceViableInfo', function(){ $popup.hide(); });
 			};
 
 			this.getCoreAnalysis = function(team, candidateRanking, counterTeam, threatEntries, metaGroup){

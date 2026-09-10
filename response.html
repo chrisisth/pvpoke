@@ -1,0 +1,3834 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Team Builder | PvPoke</title>
+<meta name="description" content="Build your team for Pokemon GO Trainer Battles. See how your Pokemon match up offensively and defensively, discover which Pokemon are the best counters to yours, and get suggestions for how to make your team better." />
+
+	<link rel="canonical" href="/team-builder/" /><!--Prevents Google from indexing hundreds of different versions of the same page-->
+
+<!--OG tags for social-->
+<meta property="og:title" content="Team Builder | PvPoke" />
+<meta property="og:description" content="Build your team for Pokemon GO Trainer Battles. See how your Pokemon match up offensively and defensively, discover which Pokemon are the best counters to yours, and get suggestions for how to make your team better." />
+<meta property="og:image" content="https://pvpoke.com/img/og.jpg" />
+
+<meta name="apple-mobile-web-app-capable">
+<meta name="mobile-web-app-capable">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="manifest" href="/pvpoke/src/data/manifest.json?v=3">
+
+<!--
+	<link id="favicon" rel="icon" href="/pvpoke/src/img/themes/sunflower/favicon_team_builder.png">
+-->
+
+<link id="favicon" rel="icon" href="/pvpoke/src/img/themes/sunflower/favicon.png">
+
+<link rel="stylesheet" type="text/css" href="/pvpoke/src/css/style.css?v=235">
+
+
+
+
+<script src="/pvpoke/src/js/libs/jquery-3.3.1.min.js"></script>
+<script src="/pvpoke/src/js/interface/RSSReader.js?v=347.546.276"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+
+  var gaId = '';
+</script>
+
+<script>
+	// Host for link reference
+
+	var host = "http://localhost/pvpoke/src/";
+	var webRoot = "/pvpoke/src/";
+	var siteVersion = "347.546.276";
+
+	
+		var settings = {
+			defaultIVs: "gamemaster",
+			animateTimeline: 1,
+			matrixDirection: "row",
+			gamemaster: "gamemaster",
+			pokeboxId: 0,
+			pokeboxLastDateTime: 0,
+			xls: true,
+			rankingDetails: "one-page",
+			hardMovesetLinks: 0,
+			colorblindMode: 0,
+			performanceMode: 0,
+			theme: "default"
+		};
+
+	
+	// If $_GET request exists, output as JSON into Javascript
+
+	var get = {"cup":"all","cp":"1500","t":"rillaboom-17-0-7-15-4-4-1-1-m-SCRATCH-DRUM_BEATING-EARTH_POWER"};</script>
+
+</head>
+
+<body >
+
+	
+	<header>
+		<div class="header-wrap">
+							<a href="/pvpoke/src/"><img src="/pvpoke/src/img/themes/sunflower/header.png" title="PvPoke.com" /></a>
+			
+			<div class="hamburger mobile">
+				<!--Because I'm too lazy to make a graphic-->
+				<div class="meat"></div>
+				<div class="meat"></div>
+				<div class="meat"></div>
+			</div>
+			<div class="menu">
+				<div class="menu-content">
+					<div class="parent-menu">
+						<a class="icon-battle " href="/pvpoke/src/battle/">
+							Battle<span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a class="nav-great" href="/pvpoke/src/battle/">Single Battle</a>
+								<a class="nav-ultra" href="/pvpoke/src/battle/multi/">Multi Battle</a>
+								<a class="nav-master" href="/pvpoke/src/battle/matrix/">Matrix Battle</a>
+							</div>
+						</div>
+					</div>
+					<div class="parent-menu">
+						<a class="icon-rankings " href="/pvpoke/src/rankings/">
+							Rankings <span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a class="nav-great" href="/pvpoke/src/rankings/all/1500/overall/">Great League</a>
+								<a class="nav-ultra" href="/pvpoke/src/rankings/all/2500/overall/">Ultra League</a>
+								<a class="nav-master" href="/pvpoke/src/rankings/all/10000/overall/">Master League</a>
+								<a href="/pvpoke/src/custom-rankings/">Custom Rankings</a>
+							</div>
+						</div>
+					</div>
+					<a class="icon-team selected" href="/pvpoke/src/team-builder/">Team Builder</a>
+					<div class="parent-menu">
+						<a class="icon-train " href="/pvpoke/src/train/">
+							Train <span></span>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a href="/pvpoke/src/train/analysis/">Top Performers</a>
+							</div>
+						</div>
+					</div>
+					<div class="parent-menu more-parent-menu">
+						<a class="more desktop" href="#">
+							<div class="hamburger desktop">
+								<!--Because I'm too lazy to make a graphic-->
+								<div class="meat"></div>
+								<div class="meat"></div>
+								<div class="meat"></div>
+							</div>
+						</a>
+						<div class="submenu">
+							<div class="submenu-wrap">
+								<a href="/pvpoke/src/attack-cmp-chart/">CMP Chart</a>
+								<a href="/pvpoke/src/moves/">Moves</a>
+								<a href="/pvpoke/src/articles/">Articles</a>
+								<a href="/pvpoke/src/settings/">Settings</a>
+								<a class="icon-heart" href="/pvpoke/src/contact/">Contact</a>
+								<a class="tera" href="/pvpoke/src/tera/">Tera Raid Counters</a>
+								<div class="latest-section mobile">
+									<h4>Latest <a href="/pvpoke/src/#news"></a></h4>
+									<a class="latest-link" href="#"></a>
+									<div class="date"></div>
+								</div>
+							</div>
+						</div>
+						<div class="safe-mouse-space"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="main-wrap">
+		<div id="main">
+			
+<h1>Team Builder</h1>
+
+<div class="section league-select-container team-content white">
+	<p>Select your Pokemon and movesets below. You'll see how your team matches up against top Pokemon, which Pokemon pose a potential threat, and potential alternatives for your team. You can also use this tool to identify strong team cores and how to break them.</p>
+	<select class="format-select">
+	<option value="1500" cup="all" meta-group="great">Great League</option>
+	<option value="2500" cup="all" meta-group="ultra">Ultra League</option>
+	<option value="10000" cup="all" meta-group="master">Master League</option>
+</select>
+
+<script>
+	// Dynamically add current formats to the format dropdown
+	function updateFormatSelect(formats, interfaceMaster){
+		for(var i = 0; i < formats.length; i++){
+			var showFormat = formats[i].showFormat;
+
+			if(interfaceMaster.context == "rankings" && formats[i].hideRankings){
+				showFormat = false;
+			}
+
+			if(interfaceMaster.context == "attackchart" && 
+				(formats[i].hideRankings || formats[i].cup == "custom")){
+				showFormat = false;
+			}
+			
+
+			if(showFormat){
+				$format = $("<option>"+formats[i].title+"</option>");
+				$format.attr("value", formats[i].cp);
+				$format.attr("cup", formats[i].cup);
+				$format.attr("meta-group", formats[i].meta);
+
+				$(".format-select").append($format);
+			}
+		}
+	}
+
+</script>
+
+	<a class="toggle" href="#">Advanced <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+	<div class="toggle-content team-advanced">
+		<h3 class="section-title">Options</h3>
+		<div class="flex poke">
+			<div class="team-option">
+				<h3>Max Team Size</h3>
+				<select class="team-size-select">
+					<option value="3" selected>3</option>
+					<option value="6">6</option>
+					<option value="8">8</option>
+					<option value="10">10</option>
+					<option value="12">12</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="40">40</option>
+					<option value="60">60</option>
+					<option value="80">80</option>
+					<option value="100">100</option>
+					<option value="200">200</option>
+				</select>
+			</div>
+			<div class="team-option">
+				<h3>Scorecard Length</h3>
+				<select class="scorecard-length-select">
+					<option value="10">10</option>
+					<option value="20" selected>20</option>
+					<option value="30">30</option>
+					<option value="40">40</option>
+					<option value="60">60</option>
+					<option value="80">80</option>
+					<option value="100">100</option>
+					<option value="200">200</option>
+					<option value="300">300</option>
+					<option value="400">400</option>
+					<option value="500">500</option>
+					<option value="1000">1000</option>
+					<option value="2000">2000</option>					
+				</select>
+			</div>
+			<div class="team-option">
+				<h3>Shadow Pokemon</h3>
+				<div class="check on allow-shadows"><span></span>Show Shadow Pokemon in results</div>
+			</div>
+			<div class="team-option">
+				<h3>Prioritize Meta</h3>
+				<div class="check on prioritize-meta"><span></span>Prioritize meta threats and alternatives</div>
+			</div>
+			<div class="team-option">
+				<h3>Recommend XL Pokemon</h3>
+				<div class="check allow-xl on"><span></span>Show Pokemon above level 40 in threats and alternatives</div>
+			</div>
+			<div class="team-option">
+				<h3>Allow Same Species</h3>
+				<div class="check same-species"><span></span>Allow team to use multiple of the same species</div>
+			</div>
+			<div class="flex-break"></div>
+			<div class="team-option">
+				<h3>Shields</h3>
+				<select class="shield-select">
+					<option value="average" selected>Average (0 & 1)</option>
+					<option value="all">All combinations (0–2 each)</option>
+					<option value="0">No shields</option>
+					<option value="1">1 shield</option>
+					<option value="2">2 shields</option>
+				</select>
+			</div>
+			<div class="team-option">
+				<h3>Shield Baiting</h3>
+				<div class="check shield-baiting on"><span></span>Bait shields with low-energy moves</div>
+			</div>
+		</div>
+		<p>Note that links will not currently preserve these advanced settings.</p>
+		<div class="flex">
+			<div class="flex-section">
+				<h3 class="section-title">Custom Threats</h3>
+				<p>Enter a custom group of Pokemon to evaluate threats. These Pokemon will also make up the meta scorecard.</p>
+				<div class="team-build custom-threats">
+					<div class="poke multi">
+
+	
+	<a class="swap" href="#">Swap</a>
+
+	<div class="poke-stats">
+		<div class="custom-options">
+			<h3 class="section-title">Pokemon (<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>)</h3>
+			<p>Create or select a group of custom Pokemon below.</p>
+			<div class="flex space-between">
+				<a class="custom-group-sort" href="#">Sort ...</a>
+				<div class="check show-move-counts"><span></span>Move Counts</div>
+			</div>
+
+			<div class="rankings-container clear"></div>
+			<div class="team-warning ineligible">A Pokemon may have too low stats or be ineligible.</div>
+			<div class="team-warning labyrinth">Your Labyrinth Cup team can't share any typings.</div>
+
+			<button class="add-poke-btn button">+ Add Pokemon</button>
+
+			<div class="pokebox">
+	<a href="#" class="open-pokebox button-highlight"><span>Import from</span><span>Pokebox<span></a>
+
+	<div class="pokebox-import hide">
+		<div class="pokebox-on hide">
+			<p>Select Pokemon below to import.</p>
+			<div class="poke-count-container multi">
+				<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>
+			</div>
+			<div class="pokebox-options">
+				<a href="#" class="pokebox-refresh">Refresh</a>
+				<a href="https://www.pokebattler.com/pokebox" class="pokebox-edit" target="_blank">Edit Pokebox</a>
+				<a href="https://www.pokebattler.com/user/sponsor/pvpoke" class="pvpoke-sponsor" target="_blank">Sponsor PvPoke</a>
+			</div>
+
+			<div class="poke-search-container">
+				<input class="poke-search" context="ranking-search" type="text" placeholder="Search Pokemon" />
+				<div class="check select-all"><span></span>Select all</div>
+			</div>
+
+			<div class="pokebox-list rankings-container">
+				Loading Pokebox...
+			</div>
+			<div class="error hide">
+				There was an error loading your Pokebox. Check your <a href="/pvpoke/src/settings/" target="_blank">settings</a> to ensure they're correct and refresh this page.</a>
+			</div>
+			<div class="center multi">
+				<div class="button select">Select Pokemon</div>
+			</div>
+		</div>
+		<div class="pokebox-off hide">
+			<p>PvPoke integrates with <a href="https://www.pokebattler.com/" class="pokebattler">Pokebattler</a> so you can permanently store your Pokemon and import them on any device:</p>
+			<ol>
+				<li><a href="https://www.pokebattler.com/user" target="_blank">Create or log in</a> to your Pokebattler account.</li>
+				<li>Add Pokemon to your Pokebox.</li>
+				<li>Enter your Pokebattler ID (top right corner):<input type="text" class="pokebox-id" placeholder="Pokebattler ID" /></li>
+			</ol>
+			<p>With a Pokebattler subscription, you can store even more Pokemon and <a href="https://www.pokebattler.com/user/sponsor/pvpoke" target="_blank">sponsor PvPoke!</a></p>
+			<div class="center">
+				<div class="button save">Save Settings</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+			<button class="export-btn">Import/Export</button>
+
+			<h3 class="section-title">Quick Fill</h3>
+			<select class="quick-fill-select">
+				<option value="new" selected>New Custom Group</option>
+				<optgroup label="Default">
+					<option value="great" type="great" class="multi-battle">Great League Meta</option>
+					<option value="ultra" type="ultra" class="multi-battle">Ultra League Meta</option>
+					<option value="master" type="master" class="multi-battle">Master League Meta</option>
+					<option value="littlegeneral" type="little" class="multi-battle">Little League Meta</option>
+					<option value="top50" type="top" class="multi-battle">Rankings Top 50</option>
+					<option value="top100" type="top" class="multi-battle">Rankings Top 100</option>
+				</optgroup>
+				<optgroup label="Cups">
+				</optgroup>
+				<optgroup label="Custom">
+				</optgroup>
+			</select>
+			<div class="flex quick-fill-buttons">
+				<button class="save-btn save-custom">Save</button>
+				<button class="save-btn save-as hide">Save As</button>
+				<button class="delete-btn hide">Delete</button>
+			</div>
+		</div>
+
+		<div class="options multi-battle-options">
+			<h3 class="section-title">Filter</h3>
+			<div class="form-group filter-picker">
+				<div class="option on" value="meta">Meta</div>
+				<div class="option" value="all">All Pokemon</div>
+			</div>
+		</div>
+
+		<div class="options">
+			<h3 class="section-title">Shields</h3>
+			<div class="form-group shield-picker">
+				<div class="option" value="0"><div class="icon"></div> 0</div>
+				<div class="option on" value="1"><div class="icon"></div> 1</div>
+				<div class="option" value="2"><div class="icon"></div> 2</div>
+			</div>
+			<h3 class="section-title">Apply to Group</h3>
+			<select class="default-iv-select">
+
+				<option selected disabled value="">Select an option to apply</option>
+				<option value="gamemaster">Default IV's</option>
+				<option value="overall">Maximum stat product (Rank 1)</option>
+				<option value="atk">Maximum Attack</option>
+				<option value="def">Maximum Defense</option>
+				<option value="buddy">Best Buddy</option>
+			</select>
+			<select class="pokemon-level-cap-select" style="display:none;">
+				<option value="40">Default Level Cap (40)</option>
+				<option value="41">Buddy Level Cap (41)</option>
+				<option value="50">New Level Cap (50)</option>
+				<option value="51">New Buddy Level Cap (51)</option>
+			</select>
+			<div class="check show-ivs"><span></span>Show level &amp; IV's</div>
+
+			<a href="#" class="section-title toggle clear">Options <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="toggle-content">
+				<div class="flex">
+					<div class="label">HP (%):</div><input class="start-hp" type="number" min="0" max="100" placeholder="Starting HP (%)" />
+				</div>
+				<div class="flex">
+					<div class="label">Energy (Turns):</div><input class="start-energy" type="number" min="0" max="100" placeholder="Starting Energy" />
+				</div>
+
+				<h3 class="section-title">Baiting</h3>
+				<div class="form-group bait-picker">
+					<div class="option" value="0">Off</div>
+					<div class="option on" value="1">Selective</div>
+					<div class="option" value="2">On</div>
+				</div>
+
+				<div class="stat-modifiers">
+					<h3 class="section-title">Stat Modifiers (-4 to 4)</h3>
+					<input class="stat-mod" iv="atk" type="number" placeholder="Atk" min="-4" max="4" step="1" />
+					<input class="stat-mod" iv="def" type="number" placeholder="Def" min="-4" max="4" step="1" />
+				</div>
+				<div class="damage-adjustments">
+					<div class="adjustment attack">
+						<div class="value">x1</div>
+						<div class="label">damage dealt</div>
+					</div>
+					<div class="adjustment defense">
+						<div class="value">x1</div>
+						<div class="label">damage taken</div>
+					</div>
+				</div>
+
+				<div class="check switch-delay"><span></span>1 turn switch</div>
+				<div class="check optimize-timing on"><span></span>Optimize move timing</div>
+			</div>
+		</div>
+
+		<h3 class="section-title">Search String</h3>
+		<button class="search-string-btn">Generate Search String</button>
+
+		<a href="#" class="clear-selection">Clear Selections</a>
+	</div>
+</div>
+
+<div class="hide">
+	<div class="poke single">
+	<a class="random" href="#">Random</a>
+	<a class="swap" href="#">Swap</a>
+
+	<div class="poke-search-container flex">
+		<input class="poke-search" type="text" placeholder="Search name">
+		<a href="#" class="search-info" title="Search Help" context="pokeselect">?</a>
+	</div>
+
+	<select class="poke-select">
+		<option disabled selected value="">Select a Pokemon</option>
+	</select>
+
+	<div class="form-select-container">
+		<div class="form-select-border"></div>
+		<select class="form-select">
+			<option value="" selected disabled>Select another form</option>
+		</select>
+		<a class="form-link" href="#"></a>
+	</div>
+
+	<div class="pokebox">
+	<a href="#" class="open-pokebox button-highlight"><span>Import from</span><span>Pokebox<span></a>
+
+	<div class="pokebox-import hide">
+		<div class="pokebox-on hide">
+			<p>Select Pokemon below to import.</p>
+			<div class="poke-count-container multi">
+				<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>
+			</div>
+			<div class="pokebox-options">
+				<a href="#" class="pokebox-refresh">Refresh</a>
+				<a href="https://www.pokebattler.com/pokebox" class="pokebox-edit" target="_blank">Edit Pokebox</a>
+				<a href="https://www.pokebattler.com/user/sponsor/pvpoke" class="pvpoke-sponsor" target="_blank">Sponsor PvPoke</a>
+			</div>
+
+			<div class="poke-search-container">
+				<input class="poke-search" context="ranking-search" type="text" placeholder="Search Pokemon" />
+				<div class="check select-all"><span></span>Select all</div>
+			</div>
+
+			<div class="pokebox-list rankings-container">
+				Loading Pokebox...
+			</div>
+			<div class="error hide">
+				There was an error loading your Pokebox. Check your <a href="/pvpoke/src/settings/" target="_blank">settings</a> to ensure they're correct and refresh this page.</a>
+			</div>
+			<div class="center multi">
+				<div class="button select">Select Pokemon</div>
+			</div>
+		</div>
+		<div class="pokebox-off hide">
+			<p>PvPoke integrates with <a href="https://www.pokebattler.com/" class="pokebattler">Pokebattler</a> so you can permanently store your Pokemon and import them on any device:</p>
+			<ol>
+				<li><a href="https://www.pokebattler.com/user" target="_blank">Create or log in</a> to your Pokebattler account.</li>
+				<li>Add Pokemon to your Pokebox.</li>
+				<li>Enter your Pokebattler ID (top right corner):<input type="text" class="pokebox-id" placeholder="Pokebattler ID" /></li>
+			</ol>
+			<p>With a Pokebattler subscription, you can store even more Pokemon and <a href="https://www.pokebattler.com/user/sponsor/pvpoke" target="_blank">sponsor PvPoke!</a></p>
+			<div class="center">
+				<div class="button save">Save Settings</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="poke-stats">
+
+		<h3 class="cp"><span class="identifier" title="Shadow"></span> cp <span class="stat"></span></h3>
+		<div class="types"></div>
+
+		<div class="mega-level-container">
+			<div class="mega-level-select">
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+			</div>
+		</div>
+
+		<div class="stat-container attack clear">
+			<div class="stat-label">
+				<span class="label-name">attack</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="stat-container defense clear">
+			<div class="stat-label">
+				<span class="label-name">defense</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="stat-container stamina clear">
+			<div class="stat-label">
+				<span class="label-name">stamina</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="stat-container overall clear">
+			<div class="stat-label">
+				<span class="label-name">overall</span>
+				<span class="stat">100</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="mega-cp-container">
+			<h3 class="base-name section-title">Pokemon</h3>
+			<h3 class="mega-cp">cp <span class="stat"></span></h3>
+		</div>
+
+		<div class="form-cp-container">
+			<a href="#" class="select-alternate-form"><h3 class="base-name section-title">Pokemon</h3></a>
+			<h3 class="form-cp">cp <span class="stat"></span></h3>
+		</div>
+
+		<div class="advanced-section">
+			<a class="advanced section-title" href="#">Edit/Check IVs <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="fields">
+
+				<div class="ivs">
+					<div class="flex">
+						<input class="level" type="number" placeholder="Level" min="1" max="40" step=".5" />
+						<div class="ivs-group">
+							<input class="iv" iv="atk" type="number" placeholder="Atk" min="0" max="15" step="1" /><span>/</span>
+							<input class="iv" iv="def" type="number" placeholder="Def" min="0" max="15" step="1" /><span>/</span>
+							<input class="iv" iv="hp" type="number" placeholder="HP" min="0" max="15" step="1" />
+						</div>
+					</div>
+
+					<div class="flex">
+						<label class="level">Level</label>
+						<div class="ivs-group labels">
+							<label class="iv">Atk</label><span>&nbsp;</span>
+							<label class="iv">Def</label><span>&nbsp;</span>
+							<label class="iv">HP</label>
+						</div>
+					</div>
+					<div class="iv-rank">Rank&nbsp;<span class="value"></span><span class="count"></span><span class="info-icon">i</span></div>
+				</div>
+				<div class="maximize-section">
+					<div class="check-group">
+						<div class="check on" value="overall"><span></span>Overall</div>
+						<div class="check" value="atk"><span></span>Atk</div>
+						<div class="check" value="def"><span></span>Def</div>
+					</div>
+					<div class="level-cap-group">
+						<div>Level Cap:</div>
+						<div class="check on" value="40"><span></span>40</div>
+						<div class="check" value="41"><span></span>41</div>
+						<div class="check" value="50"><span></span>50</div>
+						<div class="check" value="51"><span></span>51</div>
+					</div>
+					<div class="check auto-level on"><span></span>Auto level</div>
+					<button class="maximize-stats">Maximize</button>
+					<button class="restore-default">Default</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="move-select-container">
+			<h3 class="section-title">Fast Move</h3>
+
+			<select class="move-select fast"></select>
+
+			<h3 class="section-title">Charged Moves</h3>
+
+			<select class="move-select charged"></select>
+			<select class="move-select charged"></select>
+			<select class="move-select extra-charged"></select>
+			<div class="mega-evolution-bonus">Mega Evolve Bonus: x<span>1</span></div>
+			<button class="auto-select">Select Recommended Moves</button>
+			<div class="legacy">* Exclusive move<br><sup>†</sup> Unobtainable move</div>
+		</div>
+
+		<div class="options">
+			<div class="shield-section">
+				<h3 class="section-title">Shields</h3>
+				<div class="form-group shield-picker">
+					<div class="option" value="0"><div class="icon"></div> 0</div>
+					<div class="option on" value="1"><div class="icon"></div> 1</div>
+					<div class="option" value="2"><div class="icon"></div> 2</div>
+				</div>
+			</div>
+			<div class="shadow-section">
+				<h3 class="section-title">Shadow Form</h3>
+				<div class="form-group shadow-picker">
+					<div class="option on" value="normal">Normal</div>
+					<div class="option" value="shadow">Shadow</div>
+				</div>
+			</div>
+			<a href="#" class="section-title toggle">Options <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="toggle-content">
+				<div class="flex">
+					<div class="label">HP:</div><input class="start-hp" type="number" min="0" placeholder="Starting HP" />
+				</div>
+				<div class="flex">
+					<div class="label">Energy:</div><input class="start-energy" type="number" min="0" max="100" placeholder="Starting Energy" />
+				</div>
+				<button class="add-fast-move">+ Move</button>
+				<button class="pull-from-timeline">Pull from timeline</button>
+
+				<h3 class="section-title">Baiting</h3>
+				<div class="form-group bait-picker">
+					<div class="option" value="0">Off</div>
+					<div class="option on" value="1">Selective</div>
+					<div class="option" value="2">On</div>
+				</div>
+
+				<div class="stat-modifiers">
+					<h3 class="section-title">Stat Modifiers (-4 to 4)</h3>
+					<input class="stat-mod" iv="atk" type="number" placeholder="Atk" min="-4" max="4" step="1" />
+					<input class="stat-mod" iv="def" type="number" placeholder="Def" min="-4" max="4" step="1" />
+				</div>
+				<div class="damage-adjustments">
+					<div class="adjustment attack">
+						<div class="value">x1</div>
+						<div class="label">damage dealt</div>
+					</div>
+					<div class="adjustment defense">
+						<div class="value">x1</div>
+						<div class="label">damage taken</div>
+					</div>
+				</div>
+				<div class="check optimize-timing on"><span></span>Optimize move timing</div>
+				<div class="check switch-delay"><span></span>1 turn switch</div>
+			</div>
+		</div>
+
+		<div class="custom-ranking-options">
+			<h3 class="section-title">Ranking Weight Multiplier</h3>
+			<input class="ranking-weight" type="number" placeholder="Weight" min="0" value="1" />
+			<div class="legacy">Matchup scores against this Pokemon will be multiplied by the value above. Default is 1. Use values of 2-10 depending on meta relevancy. Use 0 to remove all weighting.</div>
+
+					</div>
+
+		<a href="#" class="clear-selection">Clear Selection</a>
+
+		<div class="hp bar-back">
+			<div class="bar"></div>
+			<div class="bar damage"></div>
+			<div class="stat"></div>
+		</div>
+
+		<div class="move-bars">
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="energy-label">
+				<div class="num">0</div>
+				<div>energy</div>
+			</div>
+		</div>
+	</div>
+	<div class="tooltip">
+		<h3 class="name"></h3>
+		<div class="details"></div>
+	</div>
+
+	<div class="clear-confirm hide">
+		<p>Clear <b><span class="name"></span></b> from the selection?</p>
+
+		<div class="center flex">
+			<div class="button yes">Yes</div>
+			<div class="button no">No</div>
+		</div>
+	</div>
+
+	<div class="custom-move hide">
+		<p>Add a custom move for <b><span class="name"></span></b>:</p>
+
+		<input class="poke-search" context="move-search" type="text" placeholder="Search move"/>
+		<select class="move-select">
+			<option selected disabled value="">Select a Move</option>
+		</select>
+
+		<p>You can customize moves in-depth with the <a href="/pvpoke/src/gm-editor/">Gamemaster Editor.</a></p>
+
+		<div class="center flex">
+			<div class="button add-move">Add move</div>
+		</div>
+	</div>
+
+	<div class="pokeselector-search-help article hide">
+		<h3>Form Shorthand</h3>
+		<p>You can use the following shorthand to select a different form of the preceding search:</p>
+		<table cellspacing="0" style="width:100%">
+			<tr>
+				<td><strong>Mega</strong></td>
+				<td>sab m</td>
+			</tr>
+			<tr>
+				<td><strong>Mega (X)</strong></td>
+				<td>zard x</td>
+			</tr>
+			<tr>
+				<td><strong>Mega (Y)</strong></td>
+				<td>zard y</td>
+			</tr>
+			<tr>
+				<td><strong>Normal</strong></td>
+				<td>zard n</td>
+			</tr>
+			<tr>
+				<td><strong>Shadow</strong></td>
+				<td>sab s</td>
+			</tr>
+		</table>
+		<h3>Keyboard Commands</h3>
+		<p>You can use the following keyboard commands when selecting a Pokemon:</p>
+		<table cellspacing="0">
+			<tr>
+				<td><strong>&uarr;</strong></td>
+				<td>Navigate up alphabetically (to select a related form)</td>
+			</tr>
+			<tr>
+				<td><strong>&darr;</strong></td>
+				<td>Navigate down alphabetically (to select a related form)</td>
+			</tr>
+			<tr>
+				<td><strong>Enter</strong></td>
+				<td>Multi-Select: Add or save changes to the current Pokemon. You can press Enter again to bring up a new Add Pokemon window.</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="iv-rank-details hide">
+		<p>Below are the overall stat rankings for this Pokemon's IVs out of <b class="count">4096</b> possible combinations.</p>
+		<div class="iv-rank-results">
+
+		</div>
+		<div class="iv-rank-result template hide">
+			<h3>Pokemon</h3>
+			<table class="stats-table iv-rankings" cellspacing="0">
+				<thead>
+					<tr>
+						<td><span class="name">CP</span></td>
+						<td><span class="name">Level</span></td>
+						<td><span class="name">IV Rank</span></td>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+</div>
+
+<div class="remove-poke-confirm hide">
+	<p>Remove <b><span class="name"></span></b> from the group?</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="list-export hide">
+	<p>Copy the text below or paste to import a custom group.</p>
+	<textarea class="list-text" type="text"></textarea>
+	<div class="export-options">
+		<div class="copy">Copy</div>
+
+		<a class="team-sheet" href="#">Team Sheet Export</a>
+		
+
+		<a class="json" href="#">JSON Export</a>
+	</div>
+
+	<div class="center">
+		<div class="button import">Import</div>
+	</div>
+</div>
+
+<div class="save-list hide">
+	<input class="list-name" placeholder="Custom group name" />
+	<p>This will save your custom group to a cookie on your device. Use the import/export option to transfer this group between devices.</p>
+	<div class="center">
+		<div class="button save">Save</div>
+	</div>
+</div>
+
+<div class="multi-clear-confirm hide">
+	<p>Clear the current selection? This will not delete your custom group.</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+
+<div class="delete-list-confirm hide">
+	<p>Delete <b><span class="name"></span></b>? This custom group will be permanently removed from your device.</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="sort-group hide">
+	<p>Sort this group by one of the following:</p>
+
+	<div class="center">
+		<div class="button name">Name</div>
+		<div class="button attack">Attack</div>
+		<div class="button defense">Defense</div>
+	</div>
+</div>
+
+<div class="search-string-window hide">
+	<p>Copy the search string for your team below.</p>
+	<div class="search-string-options flex">
+		<div class="check hp-option on"><span></span>HP</div>
+		<div class="check cp-option on"><span></span>CP</div>
+		<div class="check region-option"><span></span>Always include region</div>
+	</div>
+	<h5>Note CP and HP are not used for Pokemon with default IVs.</h5>
+	<textarea class="team-string-text" type="text" readonly></textarea>
+	<div class="copy">Copy</div>
+</div>
+				</div>
+			</div>
+			<div class="flex-section">
+				<h3 class="section-title">Custom Alternatives</h3>
+				<p>Enter a custom group of Pokemon to evaluate alternatives. These will appear as suggestions for your team.</p>
+				<div class="team-build custom-alternatives">
+					<div class="poke multi">
+
+	
+	<a class="swap" href="#">Swap</a>
+
+	<div class="poke-stats">
+		<div class="custom-options">
+			<h3 class="section-title">Pokemon (<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>)</h3>
+			<p>Create or select a group of custom Pokemon below.</p>
+			<div class="flex space-between">
+				<a class="custom-group-sort" href="#">Sort ...</a>
+				<div class="check show-move-counts"><span></span>Move Counts</div>
+			</div>
+
+			<div class="rankings-container clear"></div>
+			<div class="team-warning ineligible">A Pokemon may have too low stats or be ineligible.</div>
+			<div class="team-warning labyrinth">Your Labyrinth Cup team can't share any typings.</div>
+
+			<button class="add-poke-btn button">+ Add Pokemon</button>
+
+			<div class="pokebox">
+	<a href="#" class="open-pokebox button-highlight"><span>Import from</span><span>Pokebox<span></a>
+
+	<div class="pokebox-import hide">
+		<div class="pokebox-on hide">
+			<p>Select Pokemon below to import.</p>
+			<div class="poke-count-container multi">
+				<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>
+			</div>
+			<div class="pokebox-options">
+				<a href="#" class="pokebox-refresh">Refresh</a>
+				<a href="https://www.pokebattler.com/pokebox" class="pokebox-edit" target="_blank">Edit Pokebox</a>
+				<a href="https://www.pokebattler.com/user/sponsor/pvpoke" class="pvpoke-sponsor" target="_blank">Sponsor PvPoke</a>
+			</div>
+
+			<div class="poke-search-container">
+				<input class="poke-search" context="ranking-search" type="text" placeholder="Search Pokemon" />
+				<div class="check select-all"><span></span>Select all</div>
+			</div>
+
+			<div class="pokebox-list rankings-container">
+				Loading Pokebox...
+			</div>
+			<div class="error hide">
+				There was an error loading your Pokebox. Check your <a href="/pvpoke/src/settings/" target="_blank">settings</a> to ensure they're correct and refresh this page.</a>
+			</div>
+			<div class="center multi">
+				<div class="button select">Select Pokemon</div>
+			</div>
+		</div>
+		<div class="pokebox-off hide">
+			<p>PvPoke integrates with <a href="https://www.pokebattler.com/" class="pokebattler">Pokebattler</a> so you can permanently store your Pokemon and import them on any device:</p>
+			<ol>
+				<li><a href="https://www.pokebattler.com/user" target="_blank">Create or log in</a> to your Pokebattler account.</li>
+				<li>Add Pokemon to your Pokebox.</li>
+				<li>Enter your Pokebattler ID (top right corner):<input type="text" class="pokebox-id" placeholder="Pokebattler ID" /></li>
+			</ol>
+			<p>With a Pokebattler subscription, you can store even more Pokemon and <a href="https://www.pokebattler.com/user/sponsor/pvpoke" target="_blank">sponsor PvPoke!</a></p>
+			<div class="center">
+				<div class="button save">Save Settings</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+			<button class="export-btn">Import/Export</button>
+
+			<h3 class="section-title">Quick Fill</h3>
+			<select class="quick-fill-select">
+				<option value="new" selected>New Custom Group</option>
+				<optgroup label="Default">
+					<option value="great" type="great" class="multi-battle">Great League Meta</option>
+					<option value="ultra" type="ultra" class="multi-battle">Ultra League Meta</option>
+					<option value="master" type="master" class="multi-battle">Master League Meta</option>
+					<option value="littlegeneral" type="little" class="multi-battle">Little League Meta</option>
+					<option value="top50" type="top" class="multi-battle">Rankings Top 50</option>
+					<option value="top100" type="top" class="multi-battle">Rankings Top 100</option>
+				</optgroup>
+				<optgroup label="Cups">
+				</optgroup>
+				<optgroup label="Custom">
+				</optgroup>
+			</select>
+			<div class="flex quick-fill-buttons">
+				<button class="save-btn save-custom">Save</button>
+				<button class="save-btn save-as hide">Save As</button>
+				<button class="delete-btn hide">Delete</button>
+			</div>
+		</div>
+
+		<div class="options multi-battle-options">
+			<h3 class="section-title">Filter</h3>
+			<div class="form-group filter-picker">
+				<div class="option on" value="meta">Meta</div>
+				<div class="option" value="all">All Pokemon</div>
+			</div>
+		</div>
+
+		<div class="options">
+			<h3 class="section-title">Shields</h3>
+			<div class="form-group shield-picker">
+				<div class="option" value="0"><div class="icon"></div> 0</div>
+				<div class="option on" value="1"><div class="icon"></div> 1</div>
+				<div class="option" value="2"><div class="icon"></div> 2</div>
+			</div>
+			<h3 class="section-title">Apply to Group</h3>
+			<select class="default-iv-select">
+
+				<option selected disabled value="">Select an option to apply</option>
+				<option value="gamemaster">Default IV's</option>
+				<option value="overall">Maximum stat product (Rank 1)</option>
+				<option value="atk">Maximum Attack</option>
+				<option value="def">Maximum Defense</option>
+				<option value="buddy">Best Buddy</option>
+			</select>
+			<select class="pokemon-level-cap-select" style="display:none;">
+				<option value="40">Default Level Cap (40)</option>
+				<option value="41">Buddy Level Cap (41)</option>
+				<option value="50">New Level Cap (50)</option>
+				<option value="51">New Buddy Level Cap (51)</option>
+			</select>
+			<div class="check show-ivs"><span></span>Show level &amp; IV's</div>
+
+			<a href="#" class="section-title toggle clear">Options <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="toggle-content">
+				<div class="flex">
+					<div class="label">HP (%):</div><input class="start-hp" type="number" min="0" max="100" placeholder="Starting HP (%)" />
+				</div>
+				<div class="flex">
+					<div class="label">Energy (Turns):</div><input class="start-energy" type="number" min="0" max="100" placeholder="Starting Energy" />
+				</div>
+
+				<h3 class="section-title">Baiting</h3>
+				<div class="form-group bait-picker">
+					<div class="option" value="0">Off</div>
+					<div class="option on" value="1">Selective</div>
+					<div class="option" value="2">On</div>
+				</div>
+
+				<div class="stat-modifiers">
+					<h3 class="section-title">Stat Modifiers (-4 to 4)</h3>
+					<input class="stat-mod" iv="atk" type="number" placeholder="Atk" min="-4" max="4" step="1" />
+					<input class="stat-mod" iv="def" type="number" placeholder="Def" min="-4" max="4" step="1" />
+				</div>
+				<div class="damage-adjustments">
+					<div class="adjustment attack">
+						<div class="value">x1</div>
+						<div class="label">damage dealt</div>
+					</div>
+					<div class="adjustment defense">
+						<div class="value">x1</div>
+						<div class="label">damage taken</div>
+					</div>
+				</div>
+
+				<div class="check switch-delay"><span></span>1 turn switch</div>
+				<div class="check optimize-timing on"><span></span>Optimize move timing</div>
+			</div>
+		</div>
+
+		<h3 class="section-title">Search String</h3>
+		<button class="search-string-btn">Generate Search String</button>
+
+		<a href="#" class="clear-selection">Clear Selections</a>
+	</div>
+</div>
+
+<div class="hide">
+	<div class="poke single">
+	<a class="random" href="#">Random</a>
+	<a class="swap" href="#">Swap</a>
+
+	<div class="poke-search-container flex">
+		<input class="poke-search" type="text" placeholder="Search name">
+		<a href="#" class="search-info" title="Search Help" context="pokeselect">?</a>
+	</div>
+
+	<select class="poke-select">
+		<option disabled selected value="">Select a Pokemon</option>
+	</select>
+
+	<div class="form-select-container">
+		<div class="form-select-border"></div>
+		<select class="form-select">
+			<option value="" selected disabled>Select another form</option>
+		</select>
+		<a class="form-link" href="#"></a>
+	</div>
+
+	<div class="pokebox">
+	<a href="#" class="open-pokebox button-highlight"><span>Import from</span><span>Pokebox<span></a>
+
+	<div class="pokebox-import hide">
+		<div class="pokebox-on hide">
+			<p>Select Pokemon below to import.</p>
+			<div class="poke-count-container multi">
+				<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>
+			</div>
+			<div class="pokebox-options">
+				<a href="#" class="pokebox-refresh">Refresh</a>
+				<a href="https://www.pokebattler.com/pokebox" class="pokebox-edit" target="_blank">Edit Pokebox</a>
+				<a href="https://www.pokebattler.com/user/sponsor/pvpoke" class="pvpoke-sponsor" target="_blank">Sponsor PvPoke</a>
+			</div>
+
+			<div class="poke-search-container">
+				<input class="poke-search" context="ranking-search" type="text" placeholder="Search Pokemon" />
+				<div class="check select-all"><span></span>Select all</div>
+			</div>
+
+			<div class="pokebox-list rankings-container">
+				Loading Pokebox...
+			</div>
+			<div class="error hide">
+				There was an error loading your Pokebox. Check your <a href="/pvpoke/src/settings/" target="_blank">settings</a> to ensure they're correct and refresh this page.</a>
+			</div>
+			<div class="center multi">
+				<div class="button select">Select Pokemon</div>
+			</div>
+		</div>
+		<div class="pokebox-off hide">
+			<p>PvPoke integrates with <a href="https://www.pokebattler.com/" class="pokebattler">Pokebattler</a> so you can permanently store your Pokemon and import them on any device:</p>
+			<ol>
+				<li><a href="https://www.pokebattler.com/user" target="_blank">Create or log in</a> to your Pokebattler account.</li>
+				<li>Add Pokemon to your Pokebox.</li>
+				<li>Enter your Pokebattler ID (top right corner):<input type="text" class="pokebox-id" placeholder="Pokebattler ID" /></li>
+			</ol>
+			<p>With a Pokebattler subscription, you can store even more Pokemon and <a href="https://www.pokebattler.com/user/sponsor/pvpoke" target="_blank">sponsor PvPoke!</a></p>
+			<div class="center">
+				<div class="button save">Save Settings</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="poke-stats">
+
+		<h3 class="cp"><span class="identifier" title="Shadow"></span> cp <span class="stat"></span></h3>
+		<div class="types"></div>
+
+		<div class="mega-level-container">
+			<div class="mega-level-select">
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+			</div>
+		</div>
+
+		<div class="stat-container attack clear">
+			<div class="stat-label">
+				<span class="label-name">attack</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="stat-container defense clear">
+			<div class="stat-label">
+				<span class="label-name">defense</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="stat-container stamina clear">
+			<div class="stat-label">
+				<span class="label-name">stamina</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="stat-container overall clear">
+			<div class="stat-label">
+				<span class="label-name">overall</span>
+				<span class="stat">100</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="mega-cp-container">
+			<h3 class="base-name section-title">Pokemon</h3>
+			<h3 class="mega-cp">cp <span class="stat"></span></h3>
+		</div>
+
+		<div class="form-cp-container">
+			<a href="#" class="select-alternate-form"><h3 class="base-name section-title">Pokemon</h3></a>
+			<h3 class="form-cp">cp <span class="stat"></span></h3>
+		</div>
+
+		<div class="advanced-section">
+			<a class="advanced section-title" href="#">Edit/Check IVs <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="fields">
+
+				<div class="ivs">
+					<div class="flex">
+						<input class="level" type="number" placeholder="Level" min="1" max="40" step=".5" />
+						<div class="ivs-group">
+							<input class="iv" iv="atk" type="number" placeholder="Atk" min="0" max="15" step="1" /><span>/</span>
+							<input class="iv" iv="def" type="number" placeholder="Def" min="0" max="15" step="1" /><span>/</span>
+							<input class="iv" iv="hp" type="number" placeholder="HP" min="0" max="15" step="1" />
+						</div>
+					</div>
+
+					<div class="flex">
+						<label class="level">Level</label>
+						<div class="ivs-group labels">
+							<label class="iv">Atk</label><span>&nbsp;</span>
+							<label class="iv">Def</label><span>&nbsp;</span>
+							<label class="iv">HP</label>
+						</div>
+					</div>
+					<div class="iv-rank">Rank&nbsp;<span class="value"></span><span class="count"></span><span class="info-icon">i</span></div>
+				</div>
+				<div class="maximize-section">
+					<div class="check-group">
+						<div class="check on" value="overall"><span></span>Overall</div>
+						<div class="check" value="atk"><span></span>Atk</div>
+						<div class="check" value="def"><span></span>Def</div>
+					</div>
+					<div class="level-cap-group">
+						<div>Level Cap:</div>
+						<div class="check on" value="40"><span></span>40</div>
+						<div class="check" value="41"><span></span>41</div>
+						<div class="check" value="50"><span></span>50</div>
+						<div class="check" value="51"><span></span>51</div>
+					</div>
+					<div class="check auto-level on"><span></span>Auto level</div>
+					<button class="maximize-stats">Maximize</button>
+					<button class="restore-default">Default</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="move-select-container">
+			<h3 class="section-title">Fast Move</h3>
+
+			<select class="move-select fast"></select>
+
+			<h3 class="section-title">Charged Moves</h3>
+
+			<select class="move-select charged"></select>
+			<select class="move-select charged"></select>
+			<select class="move-select extra-charged"></select>
+			<div class="mega-evolution-bonus">Mega Evolve Bonus: x<span>1</span></div>
+			<button class="auto-select">Select Recommended Moves</button>
+			<div class="legacy">* Exclusive move<br><sup>†</sup> Unobtainable move</div>
+		</div>
+
+		<div class="options">
+			<div class="shield-section">
+				<h3 class="section-title">Shields</h3>
+				<div class="form-group shield-picker">
+					<div class="option" value="0"><div class="icon"></div> 0</div>
+					<div class="option on" value="1"><div class="icon"></div> 1</div>
+					<div class="option" value="2"><div class="icon"></div> 2</div>
+				</div>
+			</div>
+			<div class="shadow-section">
+				<h3 class="section-title">Shadow Form</h3>
+				<div class="form-group shadow-picker">
+					<div class="option on" value="normal">Normal</div>
+					<div class="option" value="shadow">Shadow</div>
+				</div>
+			</div>
+			<a href="#" class="section-title toggle">Options <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="toggle-content">
+				<div class="flex">
+					<div class="label">HP:</div><input class="start-hp" type="number" min="0" placeholder="Starting HP" />
+				</div>
+				<div class="flex">
+					<div class="label">Energy:</div><input class="start-energy" type="number" min="0" max="100" placeholder="Starting Energy" />
+				</div>
+				<button class="add-fast-move">+ Move</button>
+				<button class="pull-from-timeline">Pull from timeline</button>
+
+				<h3 class="section-title">Baiting</h3>
+				<div class="form-group bait-picker">
+					<div class="option" value="0">Off</div>
+					<div class="option on" value="1">Selective</div>
+					<div class="option" value="2">On</div>
+				</div>
+
+				<div class="stat-modifiers">
+					<h3 class="section-title">Stat Modifiers (-4 to 4)</h3>
+					<input class="stat-mod" iv="atk" type="number" placeholder="Atk" min="-4" max="4" step="1" />
+					<input class="stat-mod" iv="def" type="number" placeholder="Def" min="-4" max="4" step="1" />
+				</div>
+				<div class="damage-adjustments">
+					<div class="adjustment attack">
+						<div class="value">x1</div>
+						<div class="label">damage dealt</div>
+					</div>
+					<div class="adjustment defense">
+						<div class="value">x1</div>
+						<div class="label">damage taken</div>
+					</div>
+				</div>
+				<div class="check optimize-timing on"><span></span>Optimize move timing</div>
+				<div class="check switch-delay"><span></span>1 turn switch</div>
+			</div>
+		</div>
+
+		<div class="custom-ranking-options">
+			<h3 class="section-title">Ranking Weight Multiplier</h3>
+			<input class="ranking-weight" type="number" placeholder="Weight" min="0" value="1" />
+			<div class="legacy">Matchup scores against this Pokemon will be multiplied by the value above. Default is 1. Use values of 2-10 depending on meta relevancy. Use 0 to remove all weighting.</div>
+
+					</div>
+
+		<a href="#" class="clear-selection">Clear Selection</a>
+
+		<div class="hp bar-back">
+			<div class="bar"></div>
+			<div class="bar damage"></div>
+			<div class="stat"></div>
+		</div>
+
+		<div class="move-bars">
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="energy-label">
+				<div class="num">0</div>
+				<div>energy</div>
+			</div>
+		</div>
+	</div>
+	<div class="tooltip">
+		<h3 class="name"></h3>
+		<div class="details"></div>
+	</div>
+
+	<div class="clear-confirm hide">
+		<p>Clear <b><span class="name"></span></b> from the selection?</p>
+
+		<div class="center flex">
+			<div class="button yes">Yes</div>
+			<div class="button no">No</div>
+		</div>
+	</div>
+
+	<div class="custom-move hide">
+		<p>Add a custom move for <b><span class="name"></span></b>:</p>
+
+		<input class="poke-search" context="move-search" type="text" placeholder="Search move"/>
+		<select class="move-select">
+			<option selected disabled value="">Select a Move</option>
+		</select>
+
+		<p>You can customize moves in-depth with the <a href="/pvpoke/src/gm-editor/">Gamemaster Editor.</a></p>
+
+		<div class="center flex">
+			<div class="button add-move">Add move</div>
+		</div>
+	</div>
+
+	<div class="pokeselector-search-help article hide">
+		<h3>Form Shorthand</h3>
+		<p>You can use the following shorthand to select a different form of the preceding search:</p>
+		<table cellspacing="0" style="width:100%">
+			<tr>
+				<td><strong>Mega</strong></td>
+				<td>sab m</td>
+			</tr>
+			<tr>
+				<td><strong>Mega (X)</strong></td>
+				<td>zard x</td>
+			</tr>
+			<tr>
+				<td><strong>Mega (Y)</strong></td>
+				<td>zard y</td>
+			</tr>
+			<tr>
+				<td><strong>Normal</strong></td>
+				<td>zard n</td>
+			</tr>
+			<tr>
+				<td><strong>Shadow</strong></td>
+				<td>sab s</td>
+			</tr>
+		</table>
+		<h3>Keyboard Commands</h3>
+		<p>You can use the following keyboard commands when selecting a Pokemon:</p>
+		<table cellspacing="0">
+			<tr>
+				<td><strong>&uarr;</strong></td>
+				<td>Navigate up alphabetically (to select a related form)</td>
+			</tr>
+			<tr>
+				<td><strong>&darr;</strong></td>
+				<td>Navigate down alphabetically (to select a related form)</td>
+			</tr>
+			<tr>
+				<td><strong>Enter</strong></td>
+				<td>Multi-Select: Add or save changes to the current Pokemon. You can press Enter again to bring up a new Add Pokemon window.</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="iv-rank-details hide">
+		<p>Below are the overall stat rankings for this Pokemon's IVs out of <b class="count">4096</b> possible combinations.</p>
+		<div class="iv-rank-results">
+
+		</div>
+		<div class="iv-rank-result template hide">
+			<h3>Pokemon</h3>
+			<table class="stats-table iv-rankings" cellspacing="0">
+				<thead>
+					<tr>
+						<td><span class="name">CP</span></td>
+						<td><span class="name">Level</span></td>
+						<td><span class="name">IV Rank</span></td>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+</div>
+
+<div class="remove-poke-confirm hide">
+	<p>Remove <b><span class="name"></span></b> from the group?</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="list-export hide">
+	<p>Copy the text below or paste to import a custom group.</p>
+	<textarea class="list-text" type="text"></textarea>
+	<div class="export-options">
+		<div class="copy">Copy</div>
+
+		<a class="team-sheet" href="#">Team Sheet Export</a>
+		
+
+		<a class="json" href="#">JSON Export</a>
+	</div>
+
+	<div class="center">
+		<div class="button import">Import</div>
+	</div>
+</div>
+
+<div class="save-list hide">
+	<input class="list-name" placeholder="Custom group name" />
+	<p>This will save your custom group to a cookie on your device. Use the import/export option to transfer this group between devices.</p>
+	<div class="center">
+		<div class="button save">Save</div>
+	</div>
+</div>
+
+<div class="multi-clear-confirm hide">
+	<p>Clear the current selection? This will not delete your custom group.</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+
+<div class="delete-list-confirm hide">
+	<p>Delete <b><span class="name"></span></b>? This custom group will be permanently removed from your device.</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="sort-group hide">
+	<p>Sort this group by one of the following:</p>
+
+	<div class="center">
+		<div class="button name">Name</div>
+		<div class="button attack">Attack</div>
+		<div class="button defense">Defense</div>
+	</div>
+</div>
+
+<div class="search-string-window hide">
+	<p>Copy the search string for your team below.</p>
+	<div class="search-string-options flex">
+		<div class="check hp-option on"><span></span>HP</div>
+		<div class="check cp-option on"><span></span>CP</div>
+		<div class="check region-option"><span></span>Always include region</div>
+	</div>
+	<h5>Note CP and HP are not used for Pokemon with default IVs.</h5>
+	<textarea class="team-string-text" type="text" readonly></textarea>
+	<div class="copy">Copy</div>
+</div>
+				</div>
+			</div>
+			<div class="flex-section">
+				<h3 class="section-title">Exclude Threats</h3>
+				<p>Exclude these Pokemon from the list of threats.</p>
+				<div class="team-build exclude-threats">
+					<div class="poke multi">
+
+	
+	<a class="swap" href="#">Swap</a>
+
+	<div class="poke-stats">
+		<div class="custom-options">
+			<h3 class="section-title">Pokemon (<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>)</h3>
+			<p>Create or select a group of custom Pokemon below.</p>
+			<div class="flex space-between">
+				<a class="custom-group-sort" href="#">Sort ...</a>
+				<div class="check show-move-counts"><span></span>Move Counts</div>
+			</div>
+
+			<div class="rankings-container clear"></div>
+			<div class="team-warning ineligible">A Pokemon may have too low stats or be ineligible.</div>
+			<div class="team-warning labyrinth">Your Labyrinth Cup team can't share any typings.</div>
+
+			<button class="add-poke-btn button">+ Add Pokemon</button>
+
+			<div class="pokebox">
+	<a href="#" class="open-pokebox button-highlight"><span>Import from</span><span>Pokebox<span></a>
+
+	<div class="pokebox-import hide">
+		<div class="pokebox-on hide">
+			<p>Select Pokemon below to import.</p>
+			<div class="poke-count-container multi">
+				<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>
+			</div>
+			<div class="pokebox-options">
+				<a href="#" class="pokebox-refresh">Refresh</a>
+				<a href="https://www.pokebattler.com/pokebox" class="pokebox-edit" target="_blank">Edit Pokebox</a>
+				<a href="https://www.pokebattler.com/user/sponsor/pvpoke" class="pvpoke-sponsor" target="_blank">Sponsor PvPoke</a>
+			</div>
+
+			<div class="poke-search-container">
+				<input class="poke-search" context="ranking-search" type="text" placeholder="Search Pokemon" />
+				<div class="check select-all"><span></span>Select all</div>
+			</div>
+
+			<div class="pokebox-list rankings-container">
+				Loading Pokebox...
+			</div>
+			<div class="error hide">
+				There was an error loading your Pokebox. Check your <a href="/pvpoke/src/settings/" target="_blank">settings</a> to ensure they're correct and refresh this page.</a>
+			</div>
+			<div class="center multi">
+				<div class="button select">Select Pokemon</div>
+			</div>
+		</div>
+		<div class="pokebox-off hide">
+			<p>PvPoke integrates with <a href="https://www.pokebattler.com/" class="pokebattler">Pokebattler</a> so you can permanently store your Pokemon and import them on any device:</p>
+			<ol>
+				<li><a href="https://www.pokebattler.com/user" target="_blank">Create or log in</a> to your Pokebattler account.</li>
+				<li>Add Pokemon to your Pokebox.</li>
+				<li>Enter your Pokebattler ID (top right corner):<input type="text" class="pokebox-id" placeholder="Pokebattler ID" /></li>
+			</ol>
+			<p>With a Pokebattler subscription, you can store even more Pokemon and <a href="https://www.pokebattler.com/user/sponsor/pvpoke" target="_blank">sponsor PvPoke!</a></p>
+			<div class="center">
+				<div class="button save">Save Settings</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+			<button class="export-btn">Import/Export</button>
+
+			<h3 class="section-title">Quick Fill</h3>
+			<select class="quick-fill-select">
+				<option value="new" selected>New Custom Group</option>
+				<optgroup label="Default">
+					<option value="great" type="great" class="multi-battle">Great League Meta</option>
+					<option value="ultra" type="ultra" class="multi-battle">Ultra League Meta</option>
+					<option value="master" type="master" class="multi-battle">Master League Meta</option>
+					<option value="littlegeneral" type="little" class="multi-battle">Little League Meta</option>
+					<option value="top50" type="top" class="multi-battle">Rankings Top 50</option>
+					<option value="top100" type="top" class="multi-battle">Rankings Top 100</option>
+				</optgroup>
+				<optgroup label="Cups">
+				</optgroup>
+				<optgroup label="Custom">
+				</optgroup>
+			</select>
+			<div class="flex quick-fill-buttons">
+				<button class="save-btn save-custom">Save</button>
+				<button class="save-btn save-as hide">Save As</button>
+				<button class="delete-btn hide">Delete</button>
+			</div>
+		</div>
+
+		<div class="options multi-battle-options">
+			<h3 class="section-title">Filter</h3>
+			<div class="form-group filter-picker">
+				<div class="option on" value="meta">Meta</div>
+				<div class="option" value="all">All Pokemon</div>
+			</div>
+		</div>
+
+		<div class="options">
+			<h3 class="section-title">Shields</h3>
+			<div class="form-group shield-picker">
+				<div class="option" value="0"><div class="icon"></div> 0</div>
+				<div class="option on" value="1"><div class="icon"></div> 1</div>
+				<div class="option" value="2"><div class="icon"></div> 2</div>
+			</div>
+			<h3 class="section-title">Apply to Group</h3>
+			<select class="default-iv-select">
+
+				<option selected disabled value="">Select an option to apply</option>
+				<option value="gamemaster">Default IV's</option>
+				<option value="overall">Maximum stat product (Rank 1)</option>
+				<option value="atk">Maximum Attack</option>
+				<option value="def">Maximum Defense</option>
+				<option value="buddy">Best Buddy</option>
+			</select>
+			<select class="pokemon-level-cap-select" style="display:none;">
+				<option value="40">Default Level Cap (40)</option>
+				<option value="41">Buddy Level Cap (41)</option>
+				<option value="50">New Level Cap (50)</option>
+				<option value="51">New Buddy Level Cap (51)</option>
+			</select>
+			<div class="check show-ivs"><span></span>Show level &amp; IV's</div>
+
+			<a href="#" class="section-title toggle clear">Options <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="toggle-content">
+				<div class="flex">
+					<div class="label">HP (%):</div><input class="start-hp" type="number" min="0" max="100" placeholder="Starting HP (%)" />
+				</div>
+				<div class="flex">
+					<div class="label">Energy (Turns):</div><input class="start-energy" type="number" min="0" max="100" placeholder="Starting Energy" />
+				</div>
+
+				<h3 class="section-title">Baiting</h3>
+				<div class="form-group bait-picker">
+					<div class="option" value="0">Off</div>
+					<div class="option on" value="1">Selective</div>
+					<div class="option" value="2">On</div>
+				</div>
+
+				<div class="stat-modifiers">
+					<h3 class="section-title">Stat Modifiers (-4 to 4)</h3>
+					<input class="stat-mod" iv="atk" type="number" placeholder="Atk" min="-4" max="4" step="1" />
+					<input class="stat-mod" iv="def" type="number" placeholder="Def" min="-4" max="4" step="1" />
+				</div>
+				<div class="damage-adjustments">
+					<div class="adjustment attack">
+						<div class="value">x1</div>
+						<div class="label">damage dealt</div>
+					</div>
+					<div class="adjustment defense">
+						<div class="value">x1</div>
+						<div class="label">damage taken</div>
+					</div>
+				</div>
+
+				<div class="check switch-delay"><span></span>1 turn switch</div>
+				<div class="check optimize-timing on"><span></span>Optimize move timing</div>
+			</div>
+		</div>
+
+		<h3 class="section-title">Search String</h3>
+		<button class="search-string-btn">Generate Search String</button>
+
+		<a href="#" class="clear-selection">Clear Selections</a>
+	</div>
+</div>
+
+<div class="hide">
+	<div class="poke single">
+	<a class="random" href="#">Random</a>
+	<a class="swap" href="#">Swap</a>
+
+	<div class="poke-search-container flex">
+		<input class="poke-search" type="text" placeholder="Search name">
+		<a href="#" class="search-info" title="Search Help" context="pokeselect">?</a>
+	</div>
+
+	<select class="poke-select">
+		<option disabled selected value="">Select a Pokemon</option>
+	</select>
+
+	<div class="form-select-container">
+		<div class="form-select-border"></div>
+		<select class="form-select">
+			<option value="" selected disabled>Select another form</option>
+		</select>
+		<a class="form-link" href="#"></a>
+	</div>
+
+	<div class="pokebox">
+	<a href="#" class="open-pokebox button-highlight"><span>Import from</span><span>Pokebox<span></a>
+
+	<div class="pokebox-import hide">
+		<div class="pokebox-on hide">
+			<p>Select Pokemon below to import.</p>
+			<div class="poke-count-container multi">
+				<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>
+			</div>
+			<div class="pokebox-options">
+				<a href="#" class="pokebox-refresh">Refresh</a>
+				<a href="https://www.pokebattler.com/pokebox" class="pokebox-edit" target="_blank">Edit Pokebox</a>
+				<a href="https://www.pokebattler.com/user/sponsor/pvpoke" class="pvpoke-sponsor" target="_blank">Sponsor PvPoke</a>
+			</div>
+
+			<div class="poke-search-container">
+				<input class="poke-search" context="ranking-search" type="text" placeholder="Search Pokemon" />
+				<div class="check select-all"><span></span>Select all</div>
+			</div>
+
+			<div class="pokebox-list rankings-container">
+				Loading Pokebox...
+			</div>
+			<div class="error hide">
+				There was an error loading your Pokebox. Check your <a href="/pvpoke/src/settings/" target="_blank">settings</a> to ensure they're correct and refresh this page.</a>
+			</div>
+			<div class="center multi">
+				<div class="button select">Select Pokemon</div>
+			</div>
+		</div>
+		<div class="pokebox-off hide">
+			<p>PvPoke integrates with <a href="https://www.pokebattler.com/" class="pokebattler">Pokebattler</a> so you can permanently store your Pokemon and import them on any device:</p>
+			<ol>
+				<li><a href="https://www.pokebattler.com/user" target="_blank">Create or log in</a> to your Pokebattler account.</li>
+				<li>Add Pokemon to your Pokebox.</li>
+				<li>Enter your Pokebattler ID (top right corner):<input type="text" class="pokebox-id" placeholder="Pokebattler ID" /></li>
+			</ol>
+			<p>With a Pokebattler subscription, you can store even more Pokemon and <a href="https://www.pokebattler.com/user/sponsor/pvpoke" target="_blank">sponsor PvPoke!</a></p>
+			<div class="center">
+				<div class="button save">Save Settings</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="poke-stats">
+
+		<h3 class="cp"><span class="identifier" title="Shadow"></span> cp <span class="stat"></span></h3>
+		<div class="types"></div>
+
+		<div class="mega-level-container">
+			<div class="mega-level-select">
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+			</div>
+		</div>
+
+		<div class="stat-container attack clear">
+			<div class="stat-label">
+				<span class="label-name">attack</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="stat-container defense clear">
+			<div class="stat-label">
+				<span class="label-name">defense</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="stat-container stamina clear">
+			<div class="stat-label">
+				<span class="label-name">stamina</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="stat-container overall clear">
+			<div class="stat-label">
+				<span class="label-name">overall</span>
+				<span class="stat">100</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="mega-cp-container">
+			<h3 class="base-name section-title">Pokemon</h3>
+			<h3 class="mega-cp">cp <span class="stat"></span></h3>
+		</div>
+
+		<div class="form-cp-container">
+			<a href="#" class="select-alternate-form"><h3 class="base-name section-title">Pokemon</h3></a>
+			<h3 class="form-cp">cp <span class="stat"></span></h3>
+		</div>
+
+		<div class="advanced-section">
+			<a class="advanced section-title" href="#">Edit/Check IVs <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="fields">
+
+				<div class="ivs">
+					<div class="flex">
+						<input class="level" type="number" placeholder="Level" min="1" max="40" step=".5" />
+						<div class="ivs-group">
+							<input class="iv" iv="atk" type="number" placeholder="Atk" min="0" max="15" step="1" /><span>/</span>
+							<input class="iv" iv="def" type="number" placeholder="Def" min="0" max="15" step="1" /><span>/</span>
+							<input class="iv" iv="hp" type="number" placeholder="HP" min="0" max="15" step="1" />
+						</div>
+					</div>
+
+					<div class="flex">
+						<label class="level">Level</label>
+						<div class="ivs-group labels">
+							<label class="iv">Atk</label><span>&nbsp;</span>
+							<label class="iv">Def</label><span>&nbsp;</span>
+							<label class="iv">HP</label>
+						</div>
+					</div>
+					<div class="iv-rank">Rank&nbsp;<span class="value"></span><span class="count"></span><span class="info-icon">i</span></div>
+				</div>
+				<div class="maximize-section">
+					<div class="check-group">
+						<div class="check on" value="overall"><span></span>Overall</div>
+						<div class="check" value="atk"><span></span>Atk</div>
+						<div class="check" value="def"><span></span>Def</div>
+					</div>
+					<div class="level-cap-group">
+						<div>Level Cap:</div>
+						<div class="check on" value="40"><span></span>40</div>
+						<div class="check" value="41"><span></span>41</div>
+						<div class="check" value="50"><span></span>50</div>
+						<div class="check" value="51"><span></span>51</div>
+					</div>
+					<div class="check auto-level on"><span></span>Auto level</div>
+					<button class="maximize-stats">Maximize</button>
+					<button class="restore-default">Default</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="move-select-container">
+			<h3 class="section-title">Fast Move</h3>
+
+			<select class="move-select fast"></select>
+
+			<h3 class="section-title">Charged Moves</h3>
+
+			<select class="move-select charged"></select>
+			<select class="move-select charged"></select>
+			<select class="move-select extra-charged"></select>
+			<div class="mega-evolution-bonus">Mega Evolve Bonus: x<span>1</span></div>
+			<button class="auto-select">Select Recommended Moves</button>
+			<div class="legacy">* Exclusive move<br><sup>†</sup> Unobtainable move</div>
+		</div>
+
+		<div class="options">
+			<div class="shield-section">
+				<h3 class="section-title">Shields</h3>
+				<div class="form-group shield-picker">
+					<div class="option" value="0"><div class="icon"></div> 0</div>
+					<div class="option on" value="1"><div class="icon"></div> 1</div>
+					<div class="option" value="2"><div class="icon"></div> 2</div>
+				</div>
+			</div>
+			<div class="shadow-section">
+				<h3 class="section-title">Shadow Form</h3>
+				<div class="form-group shadow-picker">
+					<div class="option on" value="normal">Normal</div>
+					<div class="option" value="shadow">Shadow</div>
+				</div>
+			</div>
+			<a href="#" class="section-title toggle">Options <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="toggle-content">
+				<div class="flex">
+					<div class="label">HP:</div><input class="start-hp" type="number" min="0" placeholder="Starting HP" />
+				</div>
+				<div class="flex">
+					<div class="label">Energy:</div><input class="start-energy" type="number" min="0" max="100" placeholder="Starting Energy" />
+				</div>
+				<button class="add-fast-move">+ Move</button>
+				<button class="pull-from-timeline">Pull from timeline</button>
+
+				<h3 class="section-title">Baiting</h3>
+				<div class="form-group bait-picker">
+					<div class="option" value="0">Off</div>
+					<div class="option on" value="1">Selective</div>
+					<div class="option" value="2">On</div>
+				</div>
+
+				<div class="stat-modifiers">
+					<h3 class="section-title">Stat Modifiers (-4 to 4)</h3>
+					<input class="stat-mod" iv="atk" type="number" placeholder="Atk" min="-4" max="4" step="1" />
+					<input class="stat-mod" iv="def" type="number" placeholder="Def" min="-4" max="4" step="1" />
+				</div>
+				<div class="damage-adjustments">
+					<div class="adjustment attack">
+						<div class="value">x1</div>
+						<div class="label">damage dealt</div>
+					</div>
+					<div class="adjustment defense">
+						<div class="value">x1</div>
+						<div class="label">damage taken</div>
+					</div>
+				</div>
+				<div class="check optimize-timing on"><span></span>Optimize move timing</div>
+				<div class="check switch-delay"><span></span>1 turn switch</div>
+			</div>
+		</div>
+
+		<div class="custom-ranking-options">
+			<h3 class="section-title">Ranking Weight Multiplier</h3>
+			<input class="ranking-weight" type="number" placeholder="Weight" min="0" value="1" />
+			<div class="legacy">Matchup scores against this Pokemon will be multiplied by the value above. Default is 1. Use values of 2-10 depending on meta relevancy. Use 0 to remove all weighting.</div>
+
+					</div>
+
+		<a href="#" class="clear-selection">Clear Selection</a>
+
+		<div class="hp bar-back">
+			<div class="bar"></div>
+			<div class="bar damage"></div>
+			<div class="stat"></div>
+		</div>
+
+		<div class="move-bars">
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="energy-label">
+				<div class="num">0</div>
+				<div>energy</div>
+			</div>
+		</div>
+	</div>
+	<div class="tooltip">
+		<h3 class="name"></h3>
+		<div class="details"></div>
+	</div>
+
+	<div class="clear-confirm hide">
+		<p>Clear <b><span class="name"></span></b> from the selection?</p>
+
+		<div class="center flex">
+			<div class="button yes">Yes</div>
+			<div class="button no">No</div>
+		</div>
+	</div>
+
+	<div class="custom-move hide">
+		<p>Add a custom move for <b><span class="name"></span></b>:</p>
+
+		<input class="poke-search" context="move-search" type="text" placeholder="Search move"/>
+		<select class="move-select">
+			<option selected disabled value="">Select a Move</option>
+		</select>
+
+		<p>You can customize moves in-depth with the <a href="/pvpoke/src/gm-editor/">Gamemaster Editor.</a></p>
+
+		<div class="center flex">
+			<div class="button add-move">Add move</div>
+		</div>
+	</div>
+
+	<div class="pokeselector-search-help article hide">
+		<h3>Form Shorthand</h3>
+		<p>You can use the following shorthand to select a different form of the preceding search:</p>
+		<table cellspacing="0" style="width:100%">
+			<tr>
+				<td><strong>Mega</strong></td>
+				<td>sab m</td>
+			</tr>
+			<tr>
+				<td><strong>Mega (X)</strong></td>
+				<td>zard x</td>
+			</tr>
+			<tr>
+				<td><strong>Mega (Y)</strong></td>
+				<td>zard y</td>
+			</tr>
+			<tr>
+				<td><strong>Normal</strong></td>
+				<td>zard n</td>
+			</tr>
+			<tr>
+				<td><strong>Shadow</strong></td>
+				<td>sab s</td>
+			</tr>
+		</table>
+		<h3>Keyboard Commands</h3>
+		<p>You can use the following keyboard commands when selecting a Pokemon:</p>
+		<table cellspacing="0">
+			<tr>
+				<td><strong>&uarr;</strong></td>
+				<td>Navigate up alphabetically (to select a related form)</td>
+			</tr>
+			<tr>
+				<td><strong>&darr;</strong></td>
+				<td>Navigate down alphabetically (to select a related form)</td>
+			</tr>
+			<tr>
+				<td><strong>Enter</strong></td>
+				<td>Multi-Select: Add or save changes to the current Pokemon. You can press Enter again to bring up a new Add Pokemon window.</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="iv-rank-details hide">
+		<p>Below are the overall stat rankings for this Pokemon's IVs out of <b class="count">4096</b> possible combinations.</p>
+		<div class="iv-rank-results">
+
+		</div>
+		<div class="iv-rank-result template hide">
+			<h3>Pokemon</h3>
+			<table class="stats-table iv-rankings" cellspacing="0">
+				<thead>
+					<tr>
+						<td><span class="name">CP</span></td>
+						<td><span class="name">Level</span></td>
+						<td><span class="name">IV Rank</span></td>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+</div>
+
+<div class="remove-poke-confirm hide">
+	<p>Remove <b><span class="name"></span></b> from the group?</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="list-export hide">
+	<p>Copy the text below or paste to import a custom group.</p>
+	<textarea class="list-text" type="text"></textarea>
+	<div class="export-options">
+		<div class="copy">Copy</div>
+
+		<a class="team-sheet" href="#">Team Sheet Export</a>
+		
+
+		<a class="json" href="#">JSON Export</a>
+	</div>
+
+	<div class="center">
+		<div class="button import">Import</div>
+	</div>
+</div>
+
+<div class="save-list hide">
+	<input class="list-name" placeholder="Custom group name" />
+	<p>This will save your custom group to a cookie on your device. Use the import/export option to transfer this group between devices.</p>
+	<div class="center">
+		<div class="button save">Save</div>
+	</div>
+</div>
+
+<div class="multi-clear-confirm hide">
+	<p>Clear the current selection? This will not delete your custom group.</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+
+<div class="delete-list-confirm hide">
+	<p>Delete <b><span class="name"></span></b>? This custom group will be permanently removed from your device.</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="sort-group hide">
+	<p>Sort this group by one of the following:</p>
+
+	<div class="center">
+		<div class="button name">Name</div>
+		<div class="button attack">Attack</div>
+		<div class="button defense">Defense</div>
+	</div>
+</div>
+
+<div class="search-string-window hide">
+	<p>Copy the search string for your team below.</p>
+	<div class="search-string-options flex">
+		<div class="check hp-option on"><span></span>HP</div>
+		<div class="check cp-option on"><span></span>CP</div>
+		<div class="check region-option"><span></span>Always include region</div>
+	</div>
+	<h5>Note CP and HP are not used for Pokemon with default IVs.</h5>
+	<textarea class="team-string-text" type="text" readonly></textarea>
+	<div class="copy">Copy</div>
+</div>
+				</div>
+			</div>
+			<div class="flex-section">
+				<h3 class="section-title">Exclude Alternatives</h3>
+				<p>Exclude these Pokemon from your suggested alternatives.</p>
+				<div class="team-build exclude-alternatives">
+					<div class="poke multi">
+
+	
+	<a class="swap" href="#">Swap</a>
+
+	<div class="poke-stats">
+		<div class="custom-options">
+			<h3 class="section-title">Pokemon (<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>)</h3>
+			<p>Create or select a group of custom Pokemon below.</p>
+			<div class="flex space-between">
+				<a class="custom-group-sort" href="#">Sort ...</a>
+				<div class="check show-move-counts"><span></span>Move Counts</div>
+			</div>
+
+			<div class="rankings-container clear"></div>
+			<div class="team-warning ineligible">A Pokemon may have too low stats or be ineligible.</div>
+			<div class="team-warning labyrinth">Your Labyrinth Cup team can't share any typings.</div>
+
+			<button class="add-poke-btn button">+ Add Pokemon</button>
+
+			<div class="pokebox">
+	<a href="#" class="open-pokebox button-highlight"><span>Import from</span><span>Pokebox<span></a>
+
+	<div class="pokebox-import hide">
+		<div class="pokebox-on hide">
+			<p>Select Pokemon below to import.</p>
+			<div class="poke-count-container multi">
+				<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>
+			</div>
+			<div class="pokebox-options">
+				<a href="#" class="pokebox-refresh">Refresh</a>
+				<a href="https://www.pokebattler.com/pokebox" class="pokebox-edit" target="_blank">Edit Pokebox</a>
+				<a href="https://www.pokebattler.com/user/sponsor/pvpoke" class="pvpoke-sponsor" target="_blank">Sponsor PvPoke</a>
+			</div>
+
+			<div class="poke-search-container">
+				<input class="poke-search" context="ranking-search" type="text" placeholder="Search Pokemon" />
+				<div class="check select-all"><span></span>Select all</div>
+			</div>
+
+			<div class="pokebox-list rankings-container">
+				Loading Pokebox...
+			</div>
+			<div class="error hide">
+				There was an error loading your Pokebox. Check your <a href="/pvpoke/src/settings/" target="_blank">settings</a> to ensure they're correct and refresh this page.</a>
+			</div>
+			<div class="center multi">
+				<div class="button select">Select Pokemon</div>
+			</div>
+		</div>
+		<div class="pokebox-off hide">
+			<p>PvPoke integrates with <a href="https://www.pokebattler.com/" class="pokebattler">Pokebattler</a> so you can permanently store your Pokemon and import them on any device:</p>
+			<ol>
+				<li><a href="https://www.pokebattler.com/user" target="_blank">Create or log in</a> to your Pokebattler account.</li>
+				<li>Add Pokemon to your Pokebox.</li>
+				<li>Enter your Pokebattler ID (top right corner):<input type="text" class="pokebox-id" placeholder="Pokebattler ID" /></li>
+			</ol>
+			<p>With a Pokebattler subscription, you can store even more Pokemon and <a href="https://www.pokebattler.com/user/sponsor/pvpoke" target="_blank">sponsor PvPoke!</a></p>
+			<div class="center">
+				<div class="button save">Save Settings</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+			<button class="export-btn">Import/Export</button>
+
+			<h3 class="section-title">Quick Fill</h3>
+			<select class="quick-fill-select">
+				<option value="new" selected>New Custom Group</option>
+				<optgroup label="Default">
+					<option value="great" type="great" class="multi-battle">Great League Meta</option>
+					<option value="ultra" type="ultra" class="multi-battle">Ultra League Meta</option>
+					<option value="master" type="master" class="multi-battle">Master League Meta</option>
+					<option value="littlegeneral" type="little" class="multi-battle">Little League Meta</option>
+					<option value="top50" type="top" class="multi-battle">Rankings Top 50</option>
+					<option value="top100" type="top" class="multi-battle">Rankings Top 100</option>
+				</optgroup>
+				<optgroup label="Cups">
+				</optgroup>
+				<optgroup label="Custom">
+				</optgroup>
+			</select>
+			<div class="flex quick-fill-buttons">
+				<button class="save-btn save-custom">Save</button>
+				<button class="save-btn save-as hide">Save As</button>
+				<button class="delete-btn hide">Delete</button>
+			</div>
+		</div>
+
+		<div class="options multi-battle-options">
+			<h3 class="section-title">Filter</h3>
+			<div class="form-group filter-picker">
+				<div class="option on" value="meta">Meta</div>
+				<div class="option" value="all">All Pokemon</div>
+			</div>
+		</div>
+
+		<div class="options">
+			<h3 class="section-title">Shields</h3>
+			<div class="form-group shield-picker">
+				<div class="option" value="0"><div class="icon"></div> 0</div>
+				<div class="option on" value="1"><div class="icon"></div> 1</div>
+				<div class="option" value="2"><div class="icon"></div> 2</div>
+			</div>
+			<h3 class="section-title">Apply to Group</h3>
+			<select class="default-iv-select">
+
+				<option selected disabled value="">Select an option to apply</option>
+				<option value="gamemaster">Default IV's</option>
+				<option value="overall">Maximum stat product (Rank 1)</option>
+				<option value="atk">Maximum Attack</option>
+				<option value="def">Maximum Defense</option>
+				<option value="buddy">Best Buddy</option>
+			</select>
+			<select class="pokemon-level-cap-select" style="display:none;">
+				<option value="40">Default Level Cap (40)</option>
+				<option value="41">Buddy Level Cap (41)</option>
+				<option value="50">New Level Cap (50)</option>
+				<option value="51">New Buddy Level Cap (51)</option>
+			</select>
+			<div class="check show-ivs"><span></span>Show level &amp; IV's</div>
+
+			<a href="#" class="section-title toggle clear">Options <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="toggle-content">
+				<div class="flex">
+					<div class="label">HP (%):</div><input class="start-hp" type="number" min="0" max="100" placeholder="Starting HP (%)" />
+				</div>
+				<div class="flex">
+					<div class="label">Energy (Turns):</div><input class="start-energy" type="number" min="0" max="100" placeholder="Starting Energy" />
+				</div>
+
+				<h3 class="section-title">Baiting</h3>
+				<div class="form-group bait-picker">
+					<div class="option" value="0">Off</div>
+					<div class="option on" value="1">Selective</div>
+					<div class="option" value="2">On</div>
+				</div>
+
+				<div class="stat-modifiers">
+					<h3 class="section-title">Stat Modifiers (-4 to 4)</h3>
+					<input class="stat-mod" iv="atk" type="number" placeholder="Atk" min="-4" max="4" step="1" />
+					<input class="stat-mod" iv="def" type="number" placeholder="Def" min="-4" max="4" step="1" />
+				</div>
+				<div class="damage-adjustments">
+					<div class="adjustment attack">
+						<div class="value">x1</div>
+						<div class="label">damage dealt</div>
+					</div>
+					<div class="adjustment defense">
+						<div class="value">x1</div>
+						<div class="label">damage taken</div>
+					</div>
+				</div>
+
+				<div class="check switch-delay"><span></span>1 turn switch</div>
+				<div class="check optimize-timing on"><span></span>Optimize move timing</div>
+			</div>
+		</div>
+
+		<h3 class="section-title">Search String</h3>
+		<button class="search-string-btn">Generate Search String</button>
+
+		<a href="#" class="clear-selection">Clear Selections</a>
+	</div>
+</div>
+
+<div class="hide">
+	<div class="poke single">
+	<a class="random" href="#">Random</a>
+	<a class="swap" href="#">Swap</a>
+
+	<div class="poke-search-container flex">
+		<input class="poke-search" type="text" placeholder="Search name">
+		<a href="#" class="search-info" title="Search Help" context="pokeselect">?</a>
+	</div>
+
+	<select class="poke-select">
+		<option disabled selected value="">Select a Pokemon</option>
+	</select>
+
+	<div class="form-select-container">
+		<div class="form-select-border"></div>
+		<select class="form-select">
+			<option value="" selected disabled>Select another form</option>
+		</select>
+		<a class="form-link" href="#"></a>
+	</div>
+
+	<div class="pokebox">
+	<a href="#" class="open-pokebox button-highlight"><span>Import from</span><span>Pokebox<span></a>
+
+	<div class="pokebox-import hide">
+		<div class="pokebox-on hide">
+			<p>Select Pokemon below to import.</p>
+			<div class="poke-count-container multi">
+				<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>
+			</div>
+			<div class="pokebox-options">
+				<a href="#" class="pokebox-refresh">Refresh</a>
+				<a href="https://www.pokebattler.com/pokebox" class="pokebox-edit" target="_blank">Edit Pokebox</a>
+				<a href="https://www.pokebattler.com/user/sponsor/pvpoke" class="pvpoke-sponsor" target="_blank">Sponsor PvPoke</a>
+			</div>
+
+			<div class="poke-search-container">
+				<input class="poke-search" context="ranking-search" type="text" placeholder="Search Pokemon" />
+				<div class="check select-all"><span></span>Select all</div>
+			</div>
+
+			<div class="pokebox-list rankings-container">
+				Loading Pokebox...
+			</div>
+			<div class="error hide">
+				There was an error loading your Pokebox. Check your <a href="/pvpoke/src/settings/" target="_blank">settings</a> to ensure they're correct and refresh this page.</a>
+			</div>
+			<div class="center multi">
+				<div class="button select">Select Pokemon</div>
+			</div>
+		</div>
+		<div class="pokebox-off hide">
+			<p>PvPoke integrates with <a href="https://www.pokebattler.com/" class="pokebattler">Pokebattler</a> so you can permanently store your Pokemon and import them on any device:</p>
+			<ol>
+				<li><a href="https://www.pokebattler.com/user" target="_blank">Create or log in</a> to your Pokebattler account.</li>
+				<li>Add Pokemon to your Pokebox.</li>
+				<li>Enter your Pokebattler ID (top right corner):<input type="text" class="pokebox-id" placeholder="Pokebattler ID" /></li>
+			</ol>
+			<p>With a Pokebattler subscription, you can store even more Pokemon and <a href="https://www.pokebattler.com/user/sponsor/pvpoke" target="_blank">sponsor PvPoke!</a></p>
+			<div class="center">
+				<div class="button save">Save Settings</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="poke-stats">
+
+		<h3 class="cp"><span class="identifier" title="Shadow"></span> cp <span class="stat"></span></h3>
+		<div class="types"></div>
+
+		<div class="mega-level-container">
+			<div class="mega-level-select">
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+			</div>
+		</div>
+
+		<div class="stat-container attack clear">
+			<div class="stat-label">
+				<span class="label-name">attack</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="stat-container defense clear">
+			<div class="stat-label">
+				<span class="label-name">defense</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="stat-container stamina clear">
+			<div class="stat-label">
+				<span class="label-name">stamina</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="stat-container overall clear">
+			<div class="stat-label">
+				<span class="label-name">overall</span>
+				<span class="stat">100</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="mega-cp-container">
+			<h3 class="base-name section-title">Pokemon</h3>
+			<h3 class="mega-cp">cp <span class="stat"></span></h3>
+		</div>
+
+		<div class="form-cp-container">
+			<a href="#" class="select-alternate-form"><h3 class="base-name section-title">Pokemon</h3></a>
+			<h3 class="form-cp">cp <span class="stat"></span></h3>
+		</div>
+
+		<div class="advanced-section">
+			<a class="advanced section-title" href="#">Edit/Check IVs <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="fields">
+
+				<div class="ivs">
+					<div class="flex">
+						<input class="level" type="number" placeholder="Level" min="1" max="40" step=".5" />
+						<div class="ivs-group">
+							<input class="iv" iv="atk" type="number" placeholder="Atk" min="0" max="15" step="1" /><span>/</span>
+							<input class="iv" iv="def" type="number" placeholder="Def" min="0" max="15" step="1" /><span>/</span>
+							<input class="iv" iv="hp" type="number" placeholder="HP" min="0" max="15" step="1" />
+						</div>
+					</div>
+
+					<div class="flex">
+						<label class="level">Level</label>
+						<div class="ivs-group labels">
+							<label class="iv">Atk</label><span>&nbsp;</span>
+							<label class="iv">Def</label><span>&nbsp;</span>
+							<label class="iv">HP</label>
+						</div>
+					</div>
+					<div class="iv-rank">Rank&nbsp;<span class="value"></span><span class="count"></span><span class="info-icon">i</span></div>
+				</div>
+				<div class="maximize-section">
+					<div class="check-group">
+						<div class="check on" value="overall"><span></span>Overall</div>
+						<div class="check" value="atk"><span></span>Atk</div>
+						<div class="check" value="def"><span></span>Def</div>
+					</div>
+					<div class="level-cap-group">
+						<div>Level Cap:</div>
+						<div class="check on" value="40"><span></span>40</div>
+						<div class="check" value="41"><span></span>41</div>
+						<div class="check" value="50"><span></span>50</div>
+						<div class="check" value="51"><span></span>51</div>
+					</div>
+					<div class="check auto-level on"><span></span>Auto level</div>
+					<button class="maximize-stats">Maximize</button>
+					<button class="restore-default">Default</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="move-select-container">
+			<h3 class="section-title">Fast Move</h3>
+
+			<select class="move-select fast"></select>
+
+			<h3 class="section-title">Charged Moves</h3>
+
+			<select class="move-select charged"></select>
+			<select class="move-select charged"></select>
+			<select class="move-select extra-charged"></select>
+			<div class="mega-evolution-bonus">Mega Evolve Bonus: x<span>1</span></div>
+			<button class="auto-select">Select Recommended Moves</button>
+			<div class="legacy">* Exclusive move<br><sup>†</sup> Unobtainable move</div>
+		</div>
+
+		<div class="options">
+			<div class="shield-section">
+				<h3 class="section-title">Shields</h3>
+				<div class="form-group shield-picker">
+					<div class="option" value="0"><div class="icon"></div> 0</div>
+					<div class="option on" value="1"><div class="icon"></div> 1</div>
+					<div class="option" value="2"><div class="icon"></div> 2</div>
+				</div>
+			</div>
+			<div class="shadow-section">
+				<h3 class="section-title">Shadow Form</h3>
+				<div class="form-group shadow-picker">
+					<div class="option on" value="normal">Normal</div>
+					<div class="option" value="shadow">Shadow</div>
+				</div>
+			</div>
+			<a href="#" class="section-title toggle">Options <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="toggle-content">
+				<div class="flex">
+					<div class="label">HP:</div><input class="start-hp" type="number" min="0" placeholder="Starting HP" />
+				</div>
+				<div class="flex">
+					<div class="label">Energy:</div><input class="start-energy" type="number" min="0" max="100" placeholder="Starting Energy" />
+				</div>
+				<button class="add-fast-move">+ Move</button>
+				<button class="pull-from-timeline">Pull from timeline</button>
+
+				<h3 class="section-title">Baiting</h3>
+				<div class="form-group bait-picker">
+					<div class="option" value="0">Off</div>
+					<div class="option on" value="1">Selective</div>
+					<div class="option" value="2">On</div>
+				</div>
+
+				<div class="stat-modifiers">
+					<h3 class="section-title">Stat Modifiers (-4 to 4)</h3>
+					<input class="stat-mod" iv="atk" type="number" placeholder="Atk" min="-4" max="4" step="1" />
+					<input class="stat-mod" iv="def" type="number" placeholder="Def" min="-4" max="4" step="1" />
+				</div>
+				<div class="damage-adjustments">
+					<div class="adjustment attack">
+						<div class="value">x1</div>
+						<div class="label">damage dealt</div>
+					</div>
+					<div class="adjustment defense">
+						<div class="value">x1</div>
+						<div class="label">damage taken</div>
+					</div>
+				</div>
+				<div class="check optimize-timing on"><span></span>Optimize move timing</div>
+				<div class="check switch-delay"><span></span>1 turn switch</div>
+			</div>
+		</div>
+
+		<div class="custom-ranking-options">
+			<h3 class="section-title">Ranking Weight Multiplier</h3>
+			<input class="ranking-weight" type="number" placeholder="Weight" min="0" value="1" />
+			<div class="legacy">Matchup scores against this Pokemon will be multiplied by the value above. Default is 1. Use values of 2-10 depending on meta relevancy. Use 0 to remove all weighting.</div>
+
+					</div>
+
+		<a href="#" class="clear-selection">Clear Selection</a>
+
+		<div class="hp bar-back">
+			<div class="bar"></div>
+			<div class="bar damage"></div>
+			<div class="stat"></div>
+		</div>
+
+		<div class="move-bars">
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="energy-label">
+				<div class="num">0</div>
+				<div>energy</div>
+			</div>
+		</div>
+	</div>
+	<div class="tooltip">
+		<h3 class="name"></h3>
+		<div class="details"></div>
+	</div>
+
+	<div class="clear-confirm hide">
+		<p>Clear <b><span class="name"></span></b> from the selection?</p>
+
+		<div class="center flex">
+			<div class="button yes">Yes</div>
+			<div class="button no">No</div>
+		</div>
+	</div>
+
+	<div class="custom-move hide">
+		<p>Add a custom move for <b><span class="name"></span></b>:</p>
+
+		<input class="poke-search" context="move-search" type="text" placeholder="Search move"/>
+		<select class="move-select">
+			<option selected disabled value="">Select a Move</option>
+		</select>
+
+		<p>You can customize moves in-depth with the <a href="/pvpoke/src/gm-editor/">Gamemaster Editor.</a></p>
+
+		<div class="center flex">
+			<div class="button add-move">Add move</div>
+		</div>
+	</div>
+
+	<div class="pokeselector-search-help article hide">
+		<h3>Form Shorthand</h3>
+		<p>You can use the following shorthand to select a different form of the preceding search:</p>
+		<table cellspacing="0" style="width:100%">
+			<tr>
+				<td><strong>Mega</strong></td>
+				<td>sab m</td>
+			</tr>
+			<tr>
+				<td><strong>Mega (X)</strong></td>
+				<td>zard x</td>
+			</tr>
+			<tr>
+				<td><strong>Mega (Y)</strong></td>
+				<td>zard y</td>
+			</tr>
+			<tr>
+				<td><strong>Normal</strong></td>
+				<td>zard n</td>
+			</tr>
+			<tr>
+				<td><strong>Shadow</strong></td>
+				<td>sab s</td>
+			</tr>
+		</table>
+		<h3>Keyboard Commands</h3>
+		<p>You can use the following keyboard commands when selecting a Pokemon:</p>
+		<table cellspacing="0">
+			<tr>
+				<td><strong>&uarr;</strong></td>
+				<td>Navigate up alphabetically (to select a related form)</td>
+			</tr>
+			<tr>
+				<td><strong>&darr;</strong></td>
+				<td>Navigate down alphabetically (to select a related form)</td>
+			</tr>
+			<tr>
+				<td><strong>Enter</strong></td>
+				<td>Multi-Select: Add or save changes to the current Pokemon. You can press Enter again to bring up a new Add Pokemon window.</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="iv-rank-details hide">
+		<p>Below are the overall stat rankings for this Pokemon's IVs out of <b class="count">4096</b> possible combinations.</p>
+		<div class="iv-rank-results">
+
+		</div>
+		<div class="iv-rank-result template hide">
+			<h3>Pokemon</h3>
+			<table class="stats-table iv-rankings" cellspacing="0">
+				<thead>
+					<tr>
+						<td><span class="name">CP</span></td>
+						<td><span class="name">Level</span></td>
+						<td><span class="name">IV Rank</span></td>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+</div>
+
+<div class="remove-poke-confirm hide">
+	<p>Remove <b><span class="name"></span></b> from the group?</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="list-export hide">
+	<p>Copy the text below or paste to import a custom group.</p>
+	<textarea class="list-text" type="text"></textarea>
+	<div class="export-options">
+		<div class="copy">Copy</div>
+
+		<a class="team-sheet" href="#">Team Sheet Export</a>
+		
+
+		<a class="json" href="#">JSON Export</a>
+	</div>
+
+	<div class="center">
+		<div class="button import">Import</div>
+	</div>
+</div>
+
+<div class="save-list hide">
+	<input class="list-name" placeholder="Custom group name" />
+	<p>This will save your custom group to a cookie on your device. Use the import/export option to transfer this group between devices.</p>
+	<div class="center">
+		<div class="button save">Save</div>
+	</div>
+</div>
+
+<div class="multi-clear-confirm hide">
+	<p>Clear the current selection? This will not delete your custom group.</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+
+<div class="delete-list-confirm hide">
+	<p>Delete <b><span class="name"></span></b>? This custom group will be permanently removed from your device.</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="sort-group hide">
+	<p>Sort this group by one of the following:</p>
+
+	<div class="center">
+		<div class="button name">Name</div>
+		<div class="button attack">Attack</div>
+		<div class="button defense">Defense</div>
+	</div>
+</div>
+
+<div class="search-string-window hide">
+	<p>Copy the search string for your team below.</p>
+	<div class="search-string-options flex">
+		<div class="check hp-option on"><span></span>HP</div>
+		<div class="check cp-option on"><span></span>CP</div>
+		<div class="check region-option"><span></span>Always include region</div>
+	</div>
+	<h5>Note CP and HP are not used for Pokemon with default IVs.</h5>
+	<textarea class="team-string-text" type="text" readonly></textarea>
+	<div class="copy">Copy</div>
+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section team-build team poke-select-container">
+	<div class="poke multi">
+
+	
+	<a class="swap" href="#">Swap</a>
+
+	<div class="poke-stats">
+		<div class="custom-options">
+			<h3 class="section-title">Pokemon (<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>)</h3>
+			<p>Create or select a group of custom Pokemon below.</p>
+			<div class="flex space-between">
+				<a class="custom-group-sort" href="#">Sort ...</a>
+				<div class="check show-move-counts"><span></span>Move Counts</div>
+			</div>
+
+			<div class="rankings-container clear"></div>
+			<div class="team-warning ineligible">A Pokemon may have too low stats or be ineligible.</div>
+			<div class="team-warning labyrinth">Your Labyrinth Cup team can't share any typings.</div>
+
+			<button class="add-poke-btn button">+ Add Pokemon</button>
+
+			<div class="pokebox">
+	<a href="#" class="open-pokebox button-highlight"><span>Import from</span><span>Pokebox<span></a>
+
+	<div class="pokebox-import hide">
+		<div class="pokebox-on hide">
+			<p>Select Pokemon below to import.</p>
+			<div class="poke-count-container multi">
+				<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>
+			</div>
+			<div class="pokebox-options">
+				<a href="#" class="pokebox-refresh">Refresh</a>
+				<a href="https://www.pokebattler.com/pokebox" class="pokebox-edit" target="_blank">Edit Pokebox</a>
+				<a href="https://www.pokebattler.com/user/sponsor/pvpoke" class="pvpoke-sponsor" target="_blank">Sponsor PvPoke</a>
+			</div>
+
+			<div class="poke-search-container">
+				<input class="poke-search" context="ranking-search" type="text" placeholder="Search Pokemon" />
+				<div class="check select-all"><span></span>Select all</div>
+			</div>
+
+			<div class="pokebox-list rankings-container">
+				Loading Pokebox...
+			</div>
+			<div class="error hide">
+				There was an error loading your Pokebox. Check your <a href="/pvpoke/src/settings/" target="_blank">settings</a> to ensure they're correct and refresh this page.</a>
+			</div>
+			<div class="center multi">
+				<div class="button select">Select Pokemon</div>
+			</div>
+		</div>
+		<div class="pokebox-off hide">
+			<p>PvPoke integrates with <a href="https://www.pokebattler.com/" class="pokebattler">Pokebattler</a> so you can permanently store your Pokemon and import them on any device:</p>
+			<ol>
+				<li><a href="https://www.pokebattler.com/user" target="_blank">Create or log in</a> to your Pokebattler account.</li>
+				<li>Add Pokemon to your Pokebox.</li>
+				<li>Enter your Pokebattler ID (top right corner):<input type="text" class="pokebox-id" placeholder="Pokebattler ID" /></li>
+			</ol>
+			<p>With a Pokebattler subscription, you can store even more Pokemon and <a href="https://www.pokebattler.com/user/sponsor/pvpoke" target="_blank">sponsor PvPoke!</a></p>
+			<div class="center">
+				<div class="button save">Save Settings</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+			<button class="export-btn">Import/Export</button>
+
+			<h3 class="section-title">Quick Fill</h3>
+			<select class="quick-fill-select">
+				<option value="new" selected>New Custom Group</option>
+				<optgroup label="Default">
+					<option value="great" type="great" class="multi-battle">Great League Meta</option>
+					<option value="ultra" type="ultra" class="multi-battle">Ultra League Meta</option>
+					<option value="master" type="master" class="multi-battle">Master League Meta</option>
+					<option value="littlegeneral" type="little" class="multi-battle">Little League Meta</option>
+					<option value="top50" type="top" class="multi-battle">Rankings Top 50</option>
+					<option value="top100" type="top" class="multi-battle">Rankings Top 100</option>
+				</optgroup>
+				<optgroup label="Cups">
+				</optgroup>
+				<optgroup label="Custom">
+				</optgroup>
+			</select>
+			<div class="flex quick-fill-buttons">
+				<button class="save-btn save-custom">Save</button>
+				<button class="save-btn save-as hide">Save As</button>
+				<button class="delete-btn hide">Delete</button>
+			</div>
+		</div>
+
+		<div class="options multi-battle-options">
+			<h3 class="section-title">Filter</h3>
+			<div class="form-group filter-picker">
+				<div class="option on" value="meta">Meta</div>
+				<div class="option" value="all">All Pokemon</div>
+			</div>
+		</div>
+
+		<div class="options">
+			<h3 class="section-title">Shields</h3>
+			<div class="form-group shield-picker">
+				<div class="option" value="0"><div class="icon"></div> 0</div>
+				<div class="option on" value="1"><div class="icon"></div> 1</div>
+				<div class="option" value="2"><div class="icon"></div> 2</div>
+			</div>
+			<h3 class="section-title">Apply to Group</h3>
+			<select class="default-iv-select">
+
+				<option selected disabled value="">Select an option to apply</option>
+				<option value="gamemaster">Default IV's</option>
+				<option value="overall">Maximum stat product (Rank 1)</option>
+				<option value="atk">Maximum Attack</option>
+				<option value="def">Maximum Defense</option>
+				<option value="buddy">Best Buddy</option>
+			</select>
+			<select class="pokemon-level-cap-select" style="display:none;">
+				<option value="40">Default Level Cap (40)</option>
+				<option value="41">Buddy Level Cap (41)</option>
+				<option value="50">New Level Cap (50)</option>
+				<option value="51">New Buddy Level Cap (51)</option>
+			</select>
+			<div class="check show-ivs"><span></span>Show level &amp; IV's</div>
+
+			<a href="#" class="section-title toggle clear">Options <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="toggle-content">
+				<div class="flex">
+					<div class="label">HP (%):</div><input class="start-hp" type="number" min="0" max="100" placeholder="Starting HP (%)" />
+				</div>
+				<div class="flex">
+					<div class="label">Energy (Turns):</div><input class="start-energy" type="number" min="0" max="100" placeholder="Starting Energy" />
+				</div>
+
+				<h3 class="section-title">Baiting</h3>
+				<div class="form-group bait-picker">
+					<div class="option" value="0">Off</div>
+					<div class="option on" value="1">Selective</div>
+					<div class="option" value="2">On</div>
+				</div>
+
+				<div class="stat-modifiers">
+					<h3 class="section-title">Stat Modifiers (-4 to 4)</h3>
+					<input class="stat-mod" iv="atk" type="number" placeholder="Atk" min="-4" max="4" step="1" />
+					<input class="stat-mod" iv="def" type="number" placeholder="Def" min="-4" max="4" step="1" />
+				</div>
+				<div class="damage-adjustments">
+					<div class="adjustment attack">
+						<div class="value">x1</div>
+						<div class="label">damage dealt</div>
+					</div>
+					<div class="adjustment defense">
+						<div class="value">x1</div>
+						<div class="label">damage taken</div>
+					</div>
+				</div>
+
+				<div class="check switch-delay"><span></span>1 turn switch</div>
+				<div class="check optimize-timing on"><span></span>Optimize move timing</div>
+			</div>
+		</div>
+
+		<h3 class="section-title">Search String</h3>
+		<button class="search-string-btn">Generate Search String</button>
+
+		<a href="#" class="clear-selection">Clear Selections</a>
+	</div>
+</div>
+
+<div class="hide">
+	<div class="poke single">
+	<a class="random" href="#">Random</a>
+	<a class="swap" href="#">Swap</a>
+
+	<div class="poke-search-container flex">
+		<input class="poke-search" type="text" placeholder="Search name">
+		<a href="#" class="search-info" title="Search Help" context="pokeselect">?</a>
+	</div>
+
+	<select class="poke-select">
+		<option disabled selected value="">Select a Pokemon</option>
+	</select>
+
+	<div class="form-select-container">
+		<div class="form-select-border"></div>
+		<select class="form-select">
+			<option value="" selected disabled>Select another form</option>
+		</select>
+		<a class="form-link" href="#"></a>
+	</div>
+
+	<div class="pokebox">
+	<a href="#" class="open-pokebox button-highlight"><span>Import from</span><span>Pokebox<span></a>
+
+	<div class="pokebox-import hide">
+		<div class="pokebox-on hide">
+			<p>Select Pokemon below to import.</p>
+			<div class="poke-count-container multi">
+				<span class="poke-count">0</span> / <span class="poke-max-count">2000</span>
+			</div>
+			<div class="pokebox-options">
+				<a href="#" class="pokebox-refresh">Refresh</a>
+				<a href="https://www.pokebattler.com/pokebox" class="pokebox-edit" target="_blank">Edit Pokebox</a>
+				<a href="https://www.pokebattler.com/user/sponsor/pvpoke" class="pvpoke-sponsor" target="_blank">Sponsor PvPoke</a>
+			</div>
+
+			<div class="poke-search-container">
+				<input class="poke-search" context="ranking-search" type="text" placeholder="Search Pokemon" />
+				<div class="check select-all"><span></span>Select all</div>
+			</div>
+
+			<div class="pokebox-list rankings-container">
+				Loading Pokebox...
+			</div>
+			<div class="error hide">
+				There was an error loading your Pokebox. Check your <a href="/pvpoke/src/settings/" target="_blank">settings</a> to ensure they're correct and refresh this page.</a>
+			</div>
+			<div class="center multi">
+				<div class="button select">Select Pokemon</div>
+			</div>
+		</div>
+		<div class="pokebox-off hide">
+			<p>PvPoke integrates with <a href="https://www.pokebattler.com/" class="pokebattler">Pokebattler</a> so you can permanently store your Pokemon and import them on any device:</p>
+			<ol>
+				<li><a href="https://www.pokebattler.com/user" target="_blank">Create or log in</a> to your Pokebattler account.</li>
+				<li>Add Pokemon to your Pokebox.</li>
+				<li>Enter your Pokebattler ID (top right corner):<input type="text" class="pokebox-id" placeholder="Pokebattler ID" /></li>
+			</ol>
+			<p>With a Pokebattler subscription, you can store even more Pokemon and <a href="https://www.pokebattler.com/user/sponsor/pvpoke" target="_blank">sponsor PvPoke!</a></p>
+			<div class="center">
+				<div class="button save">Save Settings</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="poke-stats">
+
+		<h3 class="cp"><span class="identifier" title="Shadow"></span> cp <span class="stat"></span></h3>
+		<div class="types"></div>
+
+		<div class="mega-level-container">
+			<div class="mega-level-select">
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+				<div class="mega-level button"></div>
+			</div>
+		</div>
+
+		<div class="stat-container attack clear">
+			<div class="stat-label">
+				<span class="label-name">attack</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="stat-container defense clear">
+			<div class="stat-label">
+				<span class="label-name">defense</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="stat-container stamina clear">
+			<div class="stat-label">
+				<span class="label-name">stamina</span>
+				<span class="stat">100</span>
+			</div>
+			<div class="bar-back">
+				<div class="bar"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="stat-container overall clear">
+			<div class="stat-label">
+				<span class="label-name">overall</span>
+				<span class="stat">100</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="mega-cp-container">
+			<h3 class="base-name section-title">Pokemon</h3>
+			<h3 class="mega-cp">cp <span class="stat"></span></h3>
+		</div>
+
+		<div class="form-cp-container">
+			<a href="#" class="select-alternate-form"><h3 class="base-name section-title">Pokemon</h3></a>
+			<h3 class="form-cp">cp <span class="stat"></span></h3>
+		</div>
+
+		<div class="advanced-section">
+			<a class="advanced section-title" href="#">Edit/Check IVs <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="fields">
+
+				<div class="ivs">
+					<div class="flex">
+						<input class="level" type="number" placeholder="Level" min="1" max="40" step=".5" />
+						<div class="ivs-group">
+							<input class="iv" iv="atk" type="number" placeholder="Atk" min="0" max="15" step="1" /><span>/</span>
+							<input class="iv" iv="def" type="number" placeholder="Def" min="0" max="15" step="1" /><span>/</span>
+							<input class="iv" iv="hp" type="number" placeholder="HP" min="0" max="15" step="1" />
+						</div>
+					</div>
+
+					<div class="flex">
+						<label class="level">Level</label>
+						<div class="ivs-group labels">
+							<label class="iv">Atk</label><span>&nbsp;</span>
+							<label class="iv">Def</label><span>&nbsp;</span>
+							<label class="iv">HP</label>
+						</div>
+					</div>
+					<div class="iv-rank">Rank&nbsp;<span class="value"></span><span class="count"></span><span class="info-icon">i</span></div>
+				</div>
+				<div class="maximize-section">
+					<div class="check-group">
+						<div class="check on" value="overall"><span></span>Overall</div>
+						<div class="check" value="atk"><span></span>Atk</div>
+						<div class="check" value="def"><span></span>Def</div>
+					</div>
+					<div class="level-cap-group">
+						<div>Level Cap:</div>
+						<div class="check on" value="40"><span></span>40</div>
+						<div class="check" value="41"><span></span>41</div>
+						<div class="check" value="50"><span></span>50</div>
+						<div class="check" value="51"><span></span>51</div>
+					</div>
+					<div class="check auto-level on"><span></span>Auto level</div>
+					<button class="maximize-stats">Maximize</button>
+					<button class="restore-default">Default</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="move-select-container">
+			<h3 class="section-title">Fast Move</h3>
+
+			<select class="move-select fast"></select>
+
+			<h3 class="section-title">Charged Moves</h3>
+
+			<select class="move-select charged"></select>
+			<select class="move-select charged"></select>
+			<select class="move-select extra-charged"></select>
+			<div class="mega-evolution-bonus">Mega Evolve Bonus: x<span>1</span></div>
+			<button class="auto-select">Select Recommended Moves</button>
+			<div class="legacy">* Exclusive move<br><sup>†</sup> Unobtainable move</div>
+		</div>
+
+		<div class="options">
+			<div class="shield-section">
+				<h3 class="section-title">Shields</h3>
+				<div class="form-group shield-picker">
+					<div class="option" value="0"><div class="icon"></div> 0</div>
+					<div class="option on" value="1"><div class="icon"></div> 1</div>
+					<div class="option" value="2"><div class="icon"></div> 2</div>
+				</div>
+			</div>
+			<div class="shadow-section">
+				<h3 class="section-title">Shadow Form</h3>
+				<div class="form-group shadow-picker">
+					<div class="option on" value="normal">Normal</div>
+					<div class="option" value="shadow">Shadow</div>
+				</div>
+			</div>
+			<a href="#" class="section-title toggle">Options <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+			<div class="toggle-content">
+				<div class="flex">
+					<div class="label">HP:</div><input class="start-hp" type="number" min="0" placeholder="Starting HP" />
+				</div>
+				<div class="flex">
+					<div class="label">Energy:</div><input class="start-energy" type="number" min="0" max="100" placeholder="Starting Energy" />
+				</div>
+				<button class="add-fast-move">+ Move</button>
+				<button class="pull-from-timeline">Pull from timeline</button>
+
+				<h3 class="section-title">Baiting</h3>
+				<div class="form-group bait-picker">
+					<div class="option" value="0">Off</div>
+					<div class="option on" value="1">Selective</div>
+					<div class="option" value="2">On</div>
+				</div>
+
+				<div class="stat-modifiers">
+					<h3 class="section-title">Stat Modifiers (-4 to 4)</h3>
+					<input class="stat-mod" iv="atk" type="number" placeholder="Atk" min="-4" max="4" step="1" />
+					<input class="stat-mod" iv="def" type="number" placeholder="Def" min="-4" max="4" step="1" />
+				</div>
+				<div class="damage-adjustments">
+					<div class="adjustment attack">
+						<div class="value">x1</div>
+						<div class="label">damage dealt</div>
+					</div>
+					<div class="adjustment defense">
+						<div class="value">x1</div>
+						<div class="label">damage taken</div>
+					</div>
+				</div>
+				<div class="check optimize-timing on"><span></span>Optimize move timing</div>
+				<div class="check switch-delay"><span></span>1 turn switch</div>
+			</div>
+		</div>
+
+		<div class="custom-ranking-options">
+			<h3 class="section-title">Ranking Weight Multiplier</h3>
+			<input class="ranking-weight" type="number" placeholder="Weight" min="0" value="1" />
+			<div class="legacy">Matchup scores against this Pokemon will be multiplied by the value above. Default is 1. Use values of 2-10 depending on meta relevancy. Use 0 to remove all weighting.</div>
+
+					</div>
+
+		<a href="#" class="clear-selection">Clear Selection</a>
+
+		<div class="hp bar-back">
+			<div class="bar"></div>
+			<div class="bar damage"></div>
+			<div class="stat"></div>
+		</div>
+
+		<div class="move-bars">
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="move-bar">
+				<div class="label">CM</div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar-back"></div>
+			</div>
+			<div class="energy-label">
+				<div class="num">0</div>
+				<div>energy</div>
+			</div>
+		</div>
+	</div>
+	<div class="tooltip">
+		<h3 class="name"></h3>
+		<div class="details"></div>
+	</div>
+
+	<div class="clear-confirm hide">
+		<p>Clear <b><span class="name"></span></b> from the selection?</p>
+
+		<div class="center flex">
+			<div class="button yes">Yes</div>
+			<div class="button no">No</div>
+		</div>
+	</div>
+
+	<div class="custom-move hide">
+		<p>Add a custom move for <b><span class="name"></span></b>:</p>
+
+		<input class="poke-search" context="move-search" type="text" placeholder="Search move"/>
+		<select class="move-select">
+			<option selected disabled value="">Select a Move</option>
+		</select>
+
+		<p>You can customize moves in-depth with the <a href="/pvpoke/src/gm-editor/">Gamemaster Editor.</a></p>
+
+		<div class="center flex">
+			<div class="button add-move">Add move</div>
+		</div>
+	</div>
+
+	<div class="pokeselector-search-help article hide">
+		<h3>Form Shorthand</h3>
+		<p>You can use the following shorthand to select a different form of the preceding search:</p>
+		<table cellspacing="0" style="width:100%">
+			<tr>
+				<td><strong>Mega</strong></td>
+				<td>sab m</td>
+			</tr>
+			<tr>
+				<td><strong>Mega (X)</strong></td>
+				<td>zard x</td>
+			</tr>
+			<tr>
+				<td><strong>Mega (Y)</strong></td>
+				<td>zard y</td>
+			</tr>
+			<tr>
+				<td><strong>Normal</strong></td>
+				<td>zard n</td>
+			</tr>
+			<tr>
+				<td><strong>Shadow</strong></td>
+				<td>sab s</td>
+			</tr>
+		</table>
+		<h3>Keyboard Commands</h3>
+		<p>You can use the following keyboard commands when selecting a Pokemon:</p>
+		<table cellspacing="0">
+			<tr>
+				<td><strong>&uarr;</strong></td>
+				<td>Navigate up alphabetically (to select a related form)</td>
+			</tr>
+			<tr>
+				<td><strong>&darr;</strong></td>
+				<td>Navigate down alphabetically (to select a related form)</td>
+			</tr>
+			<tr>
+				<td><strong>Enter</strong></td>
+				<td>Multi-Select: Add or save changes to the current Pokemon. You can press Enter again to bring up a new Add Pokemon window.</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="iv-rank-details hide">
+		<p>Below are the overall stat rankings for this Pokemon's IVs out of <b class="count">4096</b> possible combinations.</p>
+		<div class="iv-rank-results">
+
+		</div>
+		<div class="iv-rank-result template hide">
+			<h3>Pokemon</h3>
+			<table class="stats-table iv-rankings" cellspacing="0">
+				<thead>
+					<tr>
+						<td><span class="name">CP</span></td>
+						<td><span class="name">Level</span></td>
+						<td><span class="name">IV Rank</span></td>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+</div>
+
+<div class="remove-poke-confirm hide">
+	<p>Remove <b><span class="name"></span></b> from the group?</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="list-export hide">
+	<p>Copy the text below or paste to import a custom group.</p>
+	<textarea class="list-text" type="text"></textarea>
+	<div class="export-options">
+		<div class="copy">Copy</div>
+
+		<a class="team-sheet" href="#">Team Sheet Export</a>
+		
+
+		<a class="json" href="#">JSON Export</a>
+	</div>
+
+	<div class="center">
+		<div class="button import">Import</div>
+	</div>
+</div>
+
+<div class="save-list hide">
+	<input class="list-name" placeholder="Custom group name" />
+	<p>This will save your custom group to a cookie on your device. Use the import/export option to transfer this group between devices.</p>
+	<div class="center">
+		<div class="button save">Save</div>
+	</div>
+</div>
+
+<div class="multi-clear-confirm hide">
+	<p>Clear the current selection? This will not delete your custom group.</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+
+<div class="delete-list-confirm hide">
+	<p>Delete <b><span class="name"></span></b>? This custom group will be permanently removed from your device.</p>
+
+	<div class="center flex">
+		<div class="button yes">Yes</div>
+		<div class="button no">No</div>
+	</div>
+</div>
+
+<div class="sort-group hide">
+	<p>Sort this group by one of the following:</p>
+
+	<div class="center">
+		<div class="button name">Name</div>
+		<div class="button attack">Attack</div>
+		<div class="button defense">Defense</div>
+	</div>
+</div>
+
+<div class="search-string-window hide">
+	<p>Copy the search string for your team below.</p>
+	<div class="search-string-options flex">
+		<div class="check hp-option on"><span></span>HP</div>
+		<div class="check cp-option on"><span></span>CP</div>
+		<div class="check region-option"><span></span>Always include region</div>
+	</div>
+	<h5>Note CP and HP are not used for Pokemon with default IVs.</h5>
+	<textarea class="team-string-text" type="text" readonly></textarea>
+	<div class="copy">Copy</div>
+</div>
+</div>
+
+<button class="rate-btn button">
+	<span class="btn-content-wrap">
+		<span class="btn-icon btn-icon-team"></span>
+		<span class="btn-label">Rate Team</span>
+	</span>
+</button>
+
+<div class="section white error">Please select one or more Pokemon.</div>
+
+<div class="section typings white">
+	<a href="#" class="toggle active">Overview <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+	<div class="toggle-content article">
+		<p class="overview-intro">A compact view of the team's roles, coverage gaps, and strongest third-pokemon options.</p>
+		<div class="overview-section core-recommendations">
+			<div class="flex">
+				<h3>Recommended Third Pokemon</h3>
+				<div class="core-recommendation-meta"></div>
+			</div>
+			<p class="core-recommendation-intro">Ranked by added coverage and compatibility with the selected duo.</p>
+			<div class="core-recommendation-list"></div>
+			<div class="core-detail-panel" aria-live="polite"></div>
+		</div>
+	</div>
+	<a href="#" class="toggle active">Meta Scorecard <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+	<div class="toggle-content article">
+		<p>Explore how the top ranked Pokemon match up against your team below. Print this scorecard or save a screenshot for reference as you practice. Remember to prepare beforehand and follow timely play in tournaments!</p>
+		<div class="table-container">
+			<table class="meta-table rating-table" cellspacing="0"></table>
+		</div>
+		<div class="results-buttons">
+			<a href="#" class="button print-scorecard">Print</a>
+			<a href="#" class="button download-csv">Export All Matchups to CSV</a>
+		</div>
+	</div>
+
+	<a href="#" class="toggle active">Potential Alternatives <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+	<div class="toggle-content article">
+		<p>Compare the strongest third-pokemon candidates for the selected duo.</p>
+		<div class="poke-search-container">
+			<input class="poke-search" context="alternative-search" type="text" placeholder="Search Pokemon" />
+			<a href="#" class="search-info">i</a>
+			<a href="#" class="search-traits" title="Search Traits">+</a>
+		</div>
+		<div class="summary-legend" title="Core Score combines trio coverage, added coverage from the candidate, pair support, line flexibility, and penalties for critical gaps. Scenario volatility is shown separately.">
+			<span class="legend-pill">Strong core</span>
+			<span class="legend-pill">Usable core</span>
+			<span class="legend-pill">Weak core</span>
+			<span class="legend-help">?</span>
+		</div>
+		<div class="table-container">
+			<div class="core-matchup-details active">
+				<table class="alternatives-table rating-table" cellspacing="0"></table>
+			</div>
+		</div>
+	</div>
+
+	<a href="#" class="toggle active">Battle Histograms <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+	<div class="toggle-content">
+		<p>The charts below show how many good or bad matchups each Pokemon has among all matchups possible. A Battle Rating below 500 is a loss, and a Battle Rating above 500 is a win. You can compare previous results to examine different Pokemon, movesets, or stats.</p>
+		<div class="histograms">
+			<div class="histogram"></div>
+			<div class="histogram"></div>
+			<div class="histogram"></div>
+			<div class="histogram"></div>
+			<div class="histogram"></div>
+			<div class="histogram"></div>
+		</div>
+	</div>
+
+	<a href="#" class="toggle active">Defensive Typing <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+	<div class="toggle-content">
+		<div class="summary defense-summary"></div>
+		<div class="defense"></div>
+	</div>
+
+	<a href="#" class="toggle active">Offensive Typing <span class="arrow-down">&#9660;</span><span class="arrow-up">&#9650;</span></a>
+	<div class="toggle-content">
+		<div class="summary offense-summary"></div>
+		<div class="offense"></div>
+	</div>
+
+	<div class="share-link-container">
+		<p>Share this team:</p>
+		<div class="share-link">
+			<input type="text" value="" readonly>
+			<div class="copy">Copy</div>
+		</div>
+	</div>
+</div>
+
+<div class="sandbox-search-strings article hide">
+	<p>You can use the following search formats to filter Pokemon:</p>
+	<table cellspacing="0">
+		<tr>
+			<td><strong>Pokemon Name</strong></td>
+			<td>azumarill</td>
+		</tr>
+		<tr>
+			<td><strong>Pokemon Nickname</strong></td>
+			<td>gfisk (<a class="nickname-list" href="#">List of nicknames<a>)</td>
+		</tr>
+		<tr>
+			<td><strong>Pokemon Type</strong></td>
+			<td>water</td>
+		</tr>
+		<tr>
+			<td><strong>Pokemon Tag</strong></td>
+			<td>legendary, mythical, ultrabeast, regional, alolan, galarian, starter, shadow, shadoweligible, mega, supermega, xl</td>
+		</tr>
+		<tr>
+			<td><strong>Generation/Region</strong></td>
+			<td>gen1, gen2, gen3, etc. <br>kanto, johto, hoenn, etc.</td>
+		</tr>
+		<tr>
+			<td><strong>Pokedex Number</strong></td>
+			<td>184</td>
+		</tr>
+		<tr>
+			<td><strong>Evolution Family</strong></td>
+			<td>+politoed</td>
+		</tr>
+		<tr>
+			<td><strong>Move Name</strong></td>
+			<td>@counter</td>
+		</tr>
+		<tr>
+			<td><strong>Move Type</strong></td>
+			<td>@fighting</td>
+		</tr>
+		<tr>
+			<td><strong>Fast Move only</strong></td>
+			<td>@1fighting</td>
+		</tr>
+		<tr>
+			<td><strong>Charged Move only</strong></td>
+			<td>@2mud</td>
+		</tr>
+		<tr>
+			<td><strong>Legacy Moves (excl. Return)</strong></td>
+			<td>@legacy</td>
+		</tr>
+		<tr>
+			<td><strong>Special Moves (incl. Return)</strong></td>
+			<td>@special</td>
+		</tr>
+		<tr>
+			<td><strong>Traits</strong></td>
+			<td>Bulky, Spammy, Risky, etc. See adjacent trait guide.</td>
+		</tr>
+		<tr>
+			<td><strong>Charged Move Cost</strong></td>
+			<td>10k, 50k, 75k, 100k</td>
+		</tr>
+		<tr>
+			<td><strong>Buddy Walk Distance</strong></td>
+			<td>1km, 3km, 5km, 20km</td>
+		</tr>
+		<tr>
+			<td><strong>Meta Pokemon</strong></td>
+			<td>meta</td>
+		</tr>
+		<tr>
+			<td><strong>Editor Notes</strong></td>
+			<td>notes</td>
+		</tr>
+		<tr>
+			<td><strong>4* Pokemon</strong></td>
+			<td>4*, Hundo</td>
+		</tr>
+		<tr>
+			<td><strong>And</strong></td>
+			<td>water&amp;@fighting</td>
+		</tr>
+		<tr>
+			<td><strong>Or</strong></td>
+			<td>water,fighting</td>
+		</tr>
+		<tr>
+			<td><strong>Not</strong></td>
+			<td>!water</td>
+		</tr>
+	</table>
+</div>
+
+<div class="search-nicknames article hide">
+	<p>You can select or search for Pokemon using the common nicknames below:</p>
+	<table cellspacing="0">
+		<thead>
+			<th>Pokemon</th>
+			<th>Nicknames</th>
+		</thead>
+
+		<tbody>
+		</tbody>
+	</table>
+</div>
+<div class="search-traits-selector hide">
+	<p>Select the options below to search for Pokemon traits and playstyles.</p>
+
+	<div class="traits"></div>
+
+	<div class="center flex">
+		<div class="button search">Search</div>
+	</div>
+</div>
+
+<script src="/pvpoke/src/js/battle/DamageCalculator.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/battle/actions/ActionLogic.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/battle/timeline/TimelineEvent.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/battle/timeline/TimelineAction.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/training/DecisionOption.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/battle/Battle.js?v=347.546.276"></script>
+
+<script src="/pvpoke/src/js/GameMaster.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/pokemon/Pokemon.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/interface/TeamInterface.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/interface/PokeMultiSelect.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/interface/Pokebox.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/interface/PokeSelect.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/interface/BattleHistogram.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/interface/ModalWindow.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/interface/PokeSearch.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/battle/rankers/TeamRanker.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/battle/analyzers/CoreSynergyAnalyzer.js?v=347.546.276"></script>
+<script src="/pvpoke/src/js/Main.js?v=3"></script>
+
+		</div><!--end #main-->
+	</div><!--end #main-wrap-->
+
+	<div id="dev-panel">
+	<a class="wrench" href="#"></a>
+	<div class="dev-panel-container">
+		<h3>Developer Panel</h3>
+
+		<h4>Data</h4>
+
+		<a class="button" href="/pvpoke/src/data/compile.php" target="_blank">Compile gamemaster</a>
+		<a class="button dev-default-ivs" href="#">Generate default IV's</a>
+		<a class="button dev-shadow-stats" href="#">Update Shadow stats</a>
+		<a class="button dev-moveset-csv" href="#">Generate Moveset CSV</a>
+		<!--<a class="button dev-validate-family" href="#">Validate Family IDs</a>-->
+
+		<h4>Quick Links</h4>
+		<a class="button" href="/pvpoke/src/gm-editor/">Gamemaster Editor</a>
+		<a class="button" href="/pvpoke/src/data/overrideEditor.php">Override Editor</a>
+		<a class="button" href="/pvpoke/src/ranker.php">Ranker</a>
+		<a class="button" href="/pvpoke/src/rankersandbox.php">Rankersandbox</a>
+		<a class="button" href="/pvpoke/src/rss/feedEditor.php">RSS Feed</a>
+		<a class="button dev-production-link" href="#">Open page in production</a>
+	</div>
+</div>
+
+<script>
+	// On document ready
+	$(function() {
+
+		var gm = GameMaster.getInstance();
+		var $devPanel = $("#dev-panel").first();
+
+		// Open and close the developer panel
+		$devPanel.find("a.wrench").click(function(e){
+			e.preventDefault();
+			$devPanel.toggleClass("active");
+		});
+
+		// Generate default IV's for Pokemon
+		$devPanel.find("a.dev-default-ivs").click(function(e){
+			e.preventDefault();
+			gm.generateDefaultIVs();
+		});
+
+		// Generate default IV's for Pokemon
+		$devPanel.find("a.dev-shadow-stats").click(function(e){
+			e.preventDefault();
+			gm.updateShadowStatus();
+		});
+
+		// Validate family IDs
+		$devPanel.find("a.dev-validate-family").click(function(e){
+			e.preventDefault();
+			gm.validateFamilyData();
+		});
+
+		// Generate default IV's for Pokemon
+		$devPanel.find("a.dev-moveset-csv").click(function(e){
+			e.preventDefault();
+			gm.generatePokemonMovesetCSV();
+		});
+
+		// Open the current page link on production
+		$devPanel.find("a.dev-production-link").click(function(e){
+			e.preventDefault();
+
+			var pageURL = window.location.href.replace(host, "https://pvpoke.com/");
+
+			window.open(pageURL, '_blank');
+		});
+	});
+
+</script>
+
+	<footer>
+		<p class="copyright">Version <a href="https://github.com/pvpoke/pvpoke/releases">347.546.276</a> &copy; 2025 PvPoke LLC, released under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a> | <a href="/pvpoke/src/privacy/">Privacy Policy</a></p>
+		<p>Logo and brand colors by <a class="domz-link" href="https://pogodomz.bio.link/" target="_blank">pogoDomz</a></p>
+		<p>Pokémon and Pokémon GO are copyright of The Pokémon Company, Niantic, Inc., and Nintendo. All trademarked images and names are property of their respective owners, and any such material is used on this site for educational purposes only. PvPoke LLC has no affiliation with The Pokémon Company, Niantic, Inc., or Nintendo.</p>
+	</footer>
+
+	<!--Global script-->
+	<script>
+		var menuSlideProtection = false;
+
+		$(".hamburger.mobile").click(function(e){
+			$("header .menu").slideToggle(125);
+
+			menuSlideProtection = true;
+			setTimeout(function(){
+				menuSlideProtection = false;
+			}, 125);
+		});
+
+		// Submenu interaction on desktop and mobile
+		$(".menu .parent-menu").on("mouseenter click", function(e){
+
+			if(screen.width >= 721){
+				$(".submenu").removeClass("active");
+				$(this).find(".submenu").addClass("active");
+
+				/*// Open the submenu on a slight delay so menus don't pop open on collateral mouseovers
+				var $targetParentMenu = $(this).get(0);''
+
+				setTimeout(function(){
+					if($(".parent-menu:hover").get(0) == $targetParentMenu){
+						$(".submenu").removeClass("active");
+						$(".parent-menu:hover").find(".submenu").addClass("active");
+					}
+				}, 125);*/
+			}
+		});
+
+		$(".menu .parent-menu > a").on("click", function(e){
+			if($(e.target).is("span") && screen.width < 721){
+				e.preventDefault();
+				$(this).toggleClass("active");
+				$(this).next(".submenu").toggleClass("active");
+			}
+		});
+
+		$("body").on("mousemove click", function(e){
+			if($(".submenu:hover, .parent-menu:hover").length == 0){
+				$(".submenu").removeClass("active");
+			}
+
+			if(screen.width <= 720 && ! menuSlideProtection){
+				if($("header .menu:hover, .hamburger.mobile:hover").length == 0 && $("header .menu").css("display") == "block"){
+					$("header .menu").slideToggle(125);
+
+					menuSlideProtection = true;
+					setTimeout(function(){
+						menuSlideProtection = false;
+					}, 125);
+				}
+			}
+		});
+
+		$("header .latest-section a").click(function(e){
+			$("header .menu").slideToggle(125);
+		});
+
+		// Auto select link
+
+		$(".share-link input").click(function(e){
+			this.setSelectionRange(0, this.value.length);
+		});
+
+		// Link share copying
+
+		$("body").on("click", ".share-link .copy", function(e){
+			var el = $(e.target).prev()[0];
+			el.focus();
+			el.setSelectionRange(0, el.value.length);
+			document.execCommand("copy");
+		});
+
+		// Toggleable sections
+
+		$("body").on("click", ".toggle", function(e){
+			e.preventDefault();
+
+			$(e.target).closest(".toggle").toggleClass("active");
+		});
+
+		// Service worker handler
+		if ('serviceWorker' in navigator) {
+			console.log("Attempting to register service worker");
+			navigator.serviceWorker.register('service-worker.js')
+			  .then(function(reg){
+				console.log("Service worker registered.");
+			  }).catch(function(err) {
+				console.log("Service worker failed to register:", err)
+			  });
+		}
+
+		// disable mousewheel on a input number field when in focus
+		// (to prevent Chromium browsers change the value when scrolling)
+		$('body').on('focus', 'input[type=number]', function (e) {
+		$(this).on('wheel.disableScroll', function (e) {
+			e.preventDefault()
+		})
+		})
+		$('body').on('blur', 'input[type=number]', function (e) {
+		$(this).off('wheel.disableScroll')
+		})
+
+					// One-time custom group migration from cookies to localstorage
+
+			var jsonToMigrate = [];
+
+			
+			// Migrate custom groups to local storage
+
+			for(var i = 0; i < jsonToMigrate.length; i++){
+				window.localStorage.setItem(jsonToMigrate[i].name, jsonToMigrate[i].data);
+			}
+
+		
+	</script>
+
+</body>
+</html>
